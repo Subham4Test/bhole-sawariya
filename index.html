@@ -1,0 +1,3926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta property="og:type" content="website">
+<!-- Premium Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhole Sawariya - A to Z Collections | Cosmetics, Purse, Toys & Gifts in Rishikesh</title>
+
+<!-- SEO + Sharing meta tags -->
+<meta name="description" content="Bhole Sawariya A to Z Collections, Rishikesh. Ladies cosmetics, purse, kids toys, gifts & fashion accessories at affordable prices. Visit our store at Main Bazar, Ghaat Road.">
+<meta name="keywords" content="cosmetics Rishikesh, purse shop Rishikesh, kids toys, gift shop, ladies collection, Bhole Sawariya">
+<meta property="og:title" content="Bhole Sawariya - A to Z Collections">
+<meta property="og:description" content="Cosmetics, Purse, Kids Toys, Gifts & Fashion Accessories at affordable prices in Rishikesh.">
+<meta property="og:type" content="website">
+
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+/* ============ TYPE SCALE ============ */
+:root{
+  --fs-xs:13px;
+  --fs-sm:15px;
+  --fs-base:16px;
+  --fs-md:18px;
+  --fs-lg:20px;
+}
+
+/* ============ SCROLL PROGRESS BAR ============ */
+#scrollProgress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:4px;
+  width:0%;
+  background:linear-gradient(90deg,#FFD700,#B76E79,#FFD700);
+  z-index:100000;
+  transition:width .1s ease-out;
+  box-shadow:0 0 8px rgba(255,215,0,.6);
+}
+
+/* ============ BASE ============ */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+
+background:
+radial-gradient(circle at top left,#fffaf0 0%,transparent 35%),
+
+radial-gradient(circle at bottom right,#f8e9ff 0%,transparent 35%),
+
+linear-gradient(135deg,#faf8f5,#f6f2ff,#fffdf9);
+
+background-attachment:fixed;
+
+color:#2d2d2d;
+
+}
+
+body.splash-active{
+  overflow:hidden;
+}
+
+/* ============ SPLASH SCREEN ============ */
+#splash{
+  position:fixed;
+  inset:0;
+  background:white;
+  z-index:99999;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  overflow:hidden;
+  transition:opacity 1s ease;
+}
+#splash .splash-img-wrap{
+  position:relative;
+  width:650px;
+  max-width:90%;
+  animation:divinePop 1.2s ease-out;
+}
+#splash .splash-img-wrap img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+#splash .eyes-closed{
+  position:absolute;
+  top:0;
+  left:0;
+  opacity:0;
+  animation:blink 1.4s ease-in-out infinite;
+}
+@keyframes blink{
+  0%, 70%, 100%{ opacity:0; }   /* aankh khuli */
+  78%, 88%{ opacity:1; }        /* aankh band (jhapak) */
+}
+@keyframes divinePop{
+  0%{ transform:scale(0); opacity:0; }
+  50%{ transform:scale(1.25); opacity:1; }
+  75%{ transform:scale(.90); }
+  100%{ transform:scale(1); }
+}
+#splash h1{
+  position:absolute;
+  bottom:3%;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:3;
+  color:#5D2E5F;
+  text-shadow:0 0 15px rgba(183,110,121,.6);
+}
+
+/* Golden sweep line on splash */
+.sparkle-line{
+  position:absolute;
+  top:50%;
+  left:-60%;
+  width:160%;
+  height:6px;
+  background:linear-gradient(90deg,transparent,rgba(255,215,0,.2),rgba(255,255,255,1),rgba(255,215,0,.2),transparent);
+  border-radius:50px;
+  filter:blur(1.5px);
+  z-index:2;
+  animation:snakeMove 3s ease-in-out forwards;
+}
+@keyframes snakeMove{
+  0%{ transform:translateX(0) translateY(-10px) rotate(-5deg); opacity:0; }
+  20%{ opacity:1; }
+  50%{ transform:translateX(60%) translateY(10px) rotate(5deg); }
+  80%{ transform:translateX(120%) translateY(-10px) rotate(-5deg); }
+  100%{ transform:translateX(180%) translateY(0) rotate(0deg); opacity:0; }
+}
+
+/* Magical golden snake line under image */
+.magic-line-wrap{
+  position:absolute;
+  bottom:95px;
+  left:50%;
+  transform:translateX(-50%);
+  width:420px;
+  max-width:80%;
+  height:40px;
+  overflow:hidden;
+  z-index:5;
+}
+.magic-line{
+  position:absolute;
+  top:50%;
+  left:-40%;
+  width:40%;
+  height:4px;
+  background:linear-gradient(90deg,
+    transparent,
+    rgba(255,215,0,.3),
+    rgba(255,245,200,1),
+    #FFD700,
+    rgba(255,245,200,1),
+    rgba(255,215,0,.3),
+    transparent);
+  border-radius:50px;
+  filter:blur(.5px);
+  box-shadow:0 0 10px #FFD700,0 0 20px rgba(255,215,0,.6);
+  animation:magicSnake 2.6s ease-in-out infinite;
+}
+@keyframes magicSnake{
+  0%{ left:-40%; transform:translateY(-8px); opacity:0; }
+  15%{ opacity:1; }
+  50%{ transform:translateY(8px); }
+  85%{ opacity:1; }
+  100%{ left:100%; transform:translateY(-8px); opacity:0; }
+}
+
+/* Splash butterflies + sparkles */
+.butterfly{
+  position:absolute;
+  font-size:50px;
+  animation:fly 4s ease-in-out infinite;
+  filter:drop-shadow(0 0 10px gold);
+  opacity:.9;
+  z-index:1;
+}
+.b1{ top:15%; left:15%; animation-delay:0s; }
+.b2{ top:25%; right:18%; animation-delay:2s; }
+.b3{ bottom:20%; left:20%; animation-delay:4s; }
+.b4{ bottom:15%; right:15%; animation-delay:1s; }
+@keyframes fly{
+  0%{ transform:translateY(0) rotate(0deg); }
+  50%{ transform:translateY(-30px) rotate(10deg); }
+  100%{ transform:translateY(0) rotate(0deg); }
+}
+.sparkle{
+  position:absolute;
+  width:8px;
+  height:8px;
+  background:#FFD700;
+  border-radius:50%;
+  box-shadow:0 0 10px #FFD700,0 0 20px #FFD700;
+  animation:twinkle 2s infinite;
+  z-index:1;
+}
+.s1{ top:20%; left:30%; }
+.s2{ top:40%; right:25%; }
+.s3{ bottom:30%; left:35%; }
+.s4{ bottom:20%; right:30%; }
+.s5{ top:60%; left:15%; }
+@keyframes twinkle{
+  0%,100%{ opacity:.2; transform:scale(.5); }
+  50%{ opacity:1; transform:scale(1.5); }
+}
+
+/* Splash loading bar */
+.loading-container{
+  position:absolute;
+  bottom:55px;
+  left:50%;
+  transform:translateX(-50%);
+  width:380px;
+  max-width:80%;
+  height:12px;
+  background:#E5D4E8;
+  border:2px solid #7A2948;
+  border-radius:6px;
+  overflow:hidden;
+  z-index:5;
+}
+.loading-bar{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#5D2E5F,#7A2948,#B76E79);
+  animation:fastLoad 2s ease-out forwards;
+}
+@keyframes fastLoad{
+  0%{ width:0%; }
+  100%{ width:100%; }
+}
+#loadingText{
+  position:absolute;
+  bottom:75px;
+  left:50%;
+  transform:translateX(-50%);
+  color:#5D2E5F;
+  font-size:20px;
+  font-weight:bold;
+  z-index:6;
+}
+
+
+/* ============ HEADER ============ */
+header{
+  background:linear-gradient(135deg,#3f124d,#5d2e5f,#8a406d);
+  border-bottom:none;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:white;
+  flex-wrap:wrap;
+  gap:15px;
+
+  box-shadow:0 10px 35px rgba(0,0,0,.18);
+
+  position:sticky;
+  top:0;
+  z-index:9999;
+  
+}
+
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.logo img.logo-img{
+  width:110px;
+  height:110px;
+  border-radius:8px;
+  object-fit:cover;
+  animation:breathing 4s ease-in-out infinite;
+  transition:transform .35s ease,box-shadow .35s ease;
+ box-shadow:
+0 0 15px rgba(255,215,0,.35),
+0 0 35px rgba(255,215,0,.18);
+}
+@keyframes breathing{
+  0%,100%{ transform:scale(1); }
+  50%{ transform:scale(1.05); }
+}
+.logo img.logo-img:hover{
+ transform:
+translateY(-8px)
+rotate(-2deg)
+scale(1.12);
+  box-shadow:
+0 0 15px rgba(255,215,0,.35),
+0 0 35px rgba(255,215,0,.18);
+
+}
+
+.logo h2{
+  font-size:32px;
+  font-weight:700;
+  color:white;
+  text-shadow:2px 2px 8px rgba(0,0,0,.3);
+  transition:.4s;
+  background:linear-gradient(90deg,#fff 35%,#FFE9A8 50%,#fff 65%);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:nameShine 4s linear infinite;
+  font-family:'Cinzel',serif;
+  letter-spacing:1px;
+}
+
+.logo h2:hover{
+letter-spacing:2px;
+}
+
+@keyframes nameShine{
+  0%{ background-position:200% center; }
+  100%{ background-position:-200% center; }
+}
+.logo-text{
+  display:flex;
+  flex-direction:column;
+}
+.tagline{
+
+    font-size:17px;
+
+    color:#F5D7A1;
+
+    margin-top:5px;
+
+    font-style:italic;
+
+    font-weight:500;
+
+    display:inline-block;
+
+    transform-origin:center;
+
+    animation:taglineBreathing 3.8s ease-in-out infinite;
+
+    text-shadow:
+        0 0 6px rgba(255,215,0,.18);
+
+}
+@keyframes taglineBreathing{
+
+    0%{
+
+        transform:scaleX(1) scaleY(1);
+
+        letter-spacing:0px;
+
+    }
+
+    25%{
+
+        transform:scaleX(1.03) scaleY(.98);
+
+        letter-spacing:.4px;
+
+    }
+
+    50%{
+
+        transform:scaleX(.98) scaleY(1.03);
+
+        letter-spacing:-.2px;
+
+    }
+
+    75%{
+
+        transform:scaleX(1.02) scaleY(.99);
+
+        letter-spacing:.3px;
+
+    }
+
+    100%{
+
+        transform:scaleX(1) scaleY(1);
+
+        letter-spacing:0px;
+
+    }
+
+}
+
+
+
+
+#teddy{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+
+    background:transparent;
+
+    mix-blend-mode:lighten;
+
+    margin-left:-18px;
+}
+
+.header-contact{
+  font-size:18px;
+  font-weight:bold;
+}
+
+/* ===============================
+   Premium Header Call Card
+================================ */
+
+.header-contact{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+/* Card */
+
+.call-card{
+
+display:flex;
+
+align-items:center;
+
+gap:14px;
+
+padding:12px 22px;
+
+text-decoration:none;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.10);
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,215,0,.28);
+
+box-shadow:
+
+0 10px 25px rgba(0,0,0,.18),
+
+0 0 18px rgba(255,215,0,.08);
+
+transition:.35s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+/* Golden Shine */
+
+.call-card::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:60%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.45),
+
+transparent
+
+);
+
+transform:skewX(-25deg);
+
+transition:.8s;
+
+}
+
+.call-card:hover::before{
+
+left:160%;
+
+}
+
+/* Hover */
+
+.call-card:hover{
+
+transform:translateY(-4px);
+
+border-color:#FFD700;
+
+box-shadow:
+
+0 15px 35px rgba(0,0,0,.22),
+
+0 0 25px rgba(255,215,0,.18);
+
+}
+
+/* Phone Icon */
+
+.phone-icon{
+
+width:50px;
+
+height:50px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:linear-gradient(135deg,#FFD700,#F8E18A);
+
+font-size:24px;
+
+box-shadow:
+
+0 0 15px rgba(255,215,0,.35);
+
+animation:ringPhone 2.6s infinite;
+
+}
+
+/* Text */
+
+.phone-text{
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+.call-label{
+
+font-size:11px;
+
+letter-spacing:2px;
+
+font-weight:700;
+
+color:#FFE9A8;
+
+}
+
+.phone-number{
+
+font-size:18px;
+
+font-weight:700;
+
+color:white;
+
+}
+
+/* Ring Animation */
+
+@keyframes ringPhone{
+
+0%,100%{
+
+transform:rotate(0);
+
+}
+
+8%{
+
+transform:rotate(18deg);
+
+}
+
+16%{
+
+transform:rotate(-18deg);
+
+}
+
+24%{
+
+transform:rotate(14deg);
+
+}
+
+32%{
+
+transform:rotate(-14deg);
+
+}
+
+40%{
+
+transform:rotate(8deg);
+
+}
+
+48%{
+
+transform:rotate(0);
+
+}
+
+}
+
+
+
+/*==========================
+      PREMIUM HERO
+===========================*/
+
+.hero{
+    position:relative;
+    overflow:hidden;
+
+    min-height:60vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    padding:60px 20px 50px;
+
+    background:linear-gradient(135deg,#3f124d,#5d2e5f,#8a406d);
+
+    background-size:200% 200%;
+
+    animation:heroGradient 15s ease infinite;
+}
+
+.hero-overlay{
+
+position:absolute;
+
+inset:0;
+
+pointer-events:none;
+
+}
+
+/* ============ HERO WATER BUBBLES ============ */
+.hero-bubbles{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:1;
+}
+.bubble{
+  position:absolute;
+  border-radius:50%;
+  background:radial-gradient(circle at 38% 32%,
+      rgba(255,255,255,.30),
+      rgba(255,215,0,.14) 45%,
+      rgba(255,255,255,.03) 72%,
+      transparent 100%);
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:inset 0 0 14px rgba(255,215,0,.22);
+  animation:bubbleFloat linear infinite;
+}
+@keyframes bubbleFloat{
+  0%{ transform:translate(0,0); opacity:0; }
+  12%{ opacity:1; }
+  50%{ transform:translate(12px,-45px); }
+  88%{ opacity:1; }
+  100%{ transform:translate(-8px,-95px); opacity:0; }
+}
+.b1{ width:60px;  height:60px;  left:6%;  top:78%; opacity:.28; animation-duration:15s; animation-delay:0s; }
+.b2{ width:34px;  height:34px;  left:20%; top:60%; opacity:.22; animation-duration:11s; animation-delay:2.5s; }
+.b3{ width:90px;  height:90px;  left:82%; top:70%; opacity:.18; animation-duration:18s; animation-delay:1s; }
+.b4{ width:46px;  height:46px;  left:68%; top:32%; opacity:.24; animation-duration:13s; animation-delay:4s; }
+.b5{ width:28px;  height:28px;  left:47%; top:82%; opacity:.26; animation-duration:10s; animation-delay:3s; }
+.b6{ width:72px;  height:72px;  left:10%; top:22%; opacity:.15; animation-duration:17s; animation-delay:5.5s; }
+.b7{ width:40px;  height:40px;  left:92%; top:24%; opacity:.2;  animation-duration:12s; animation-delay:1.8s; }
+
+.hero-content{
+
+position:relative;
+
+z-index:5;
+
+max-width:900px;
+
+width:100%;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+text-align:center;
+
+margin:0 auto;
+
+}
+
+.hero-badge{
+
+    display:inline-block;
+
+    margin-bottom:28px;
+
+    padding:12px 28px;
+
+    background:linear-gradient(
+        135deg,
+        rgba(93,46,95,.95),
+        rgba(74,35,90,.95)
+    );
+
+    border:1px solid rgba(183,110,121,.75);
+
+    border-radius:12px;
+
+    color:#F8F2E8;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    text-align:center;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,.25);
+
+    transition:.3s;
+}
+
+.hero-badge:hover{
+
+    transform:translateY(-2px);
+
+    border-color:#D4AF37;
+
+    box-shadow:
+        0 12px 28px rgba(0,0,0,.30);
+
+}
+.hero-title-glass{
+
+    display:inline-flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin:0 auto 20px;
+
+}
+
+.hero h1{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+
+    color:#F8F2E8;
+
+    margin:0;
+
+}
+
+.shuffle-line{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
+.small-line{
+
+    font-size:20px;
+
+    font-weight:500;
+
+    letter-spacing:4px;
+
+    color:#F5D7A1;
+
+}
+
+.big-line{
+
+    font-size:64px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    color:#D4AF37;
+
+    text-shadow:0 5px 18px rgba(0,0,0,.35);
+
+}
+
+.letter{
+
+    display:inline-block;
+
+    opacity:0;
+
+    transform:translate(var(--dx),var(--dy)) rotate(var(--rot));
+
+    animation:letterSettle .8s cubic-bezier(.2,.8,.3,1) forwards;
+
+}
+
+.space{
+
+    display:inline-block;
+
+    width:.32em;
+
+}
+
+@keyframes letterSettle{
+  0%{ opacity:0; transform:translate(var(--dx),var(--dy)) rotate(var(--rot)); }
+  100%{ opacity:1; transform:translate(0,0) rotate(0deg); }
+}
+
+
+.hero-subtitle{
+
+max-width:760px;
+
+margin:0 auto;
+
+font-size:22px;
+
+line-height:1.8;
+
+font-weight:300;
+
+color:rgba(255,255,255,.92);
+
+}
+
+/*==========================
+      HERO BUTTONS
+===========================*/
+
+.hero-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+    margin-top:40px;
+
+    width:100%;
+
+}
+
+.hero-btn{
+
+    text-decoration:none;
+
+    padding:16px 34px;
+
+    border-radius:50px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+}
+
+.primary-btn{
+
+    background:linear-gradient(
+    135deg,
+    #FFD700,
+    #E7B931
+    );
+
+    color:#4A235A;
+
+    box-shadow:
+    0 12px 28px rgba(212,175,55,.35);
+
+}
+
+.primary-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 18px 36px rgba(212,175,55,.45);
+
+}
+
+.secondary-btn{
+
+    background:linear-gradient(135deg,#25D366,#1da851);
+
+    color:#fff;
+
+    border:1px solid rgba(255,255,255,.25);
+
+}
+
+.secondary-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 18px 36px rgba(37,211,102,.4);
+
+}
+
+/*==========================
+      FEATURE CARDS
+===========================*/
+
+.hero-features{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:18px;
+
+    max-width:900px;
+
+    width:100%;
+
+    margin:55px auto 0;
+
+}
+
+.feature-card{
+
+    background:linear-gradient(135deg,rgba(93,46,95,.55),rgba(58,20,72,.55));
+
+    border:1px solid rgba(212,175,55,.22);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:20px;
+
+    padding:22px 15px;
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    align-items:center;
+
+    justify-content:center;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.18);
+
+}
+
+.feature-card span{
+
+    font-size:15px;
+
+    color:#F7F7F7;
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(255,215,0,.45);
+
+    box-shadow:
+    0 18px 35px rgba(212,175,55,.22);
+
+}
+
+
+/* ============ PRODUCTS ============ */
+.products-title{
+  text-align:center;
+  padding:35px 0 10px;
+  font-size:35px;
+  color:#5D2E5F;
+  text-shadow:0 2px 8px rgba(183,110,121,.2);
+}
+.products-title::after{
+  content:"";
+  width:120px;
+  height:4px;
+  background:linear-gradient(to right,#B76E79,#FFD700,#B76E79);
+  display:block;
+  margin:15px auto 0;
+  border-radius:20px;
+  animation:lineGrow 1.5s ease-out;
+}
+@keyframes lineGrow{
+  0%{ width:0; opacity:0; }
+  100%{ width:120px; opacity:1; }
+}
+
+/* Scroll reveal — sections slide in */
+.reveal{
+  position:relative;
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ============ LUXURY PAGE TRANSITION (purple smoke + golden light) ============ */
+.reveal::before{
+  content:"";
+  position:absolute;
+  inset:-10%;
+  pointer-events:none;
+  opacity:0;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(255,215,0,.16), transparent 55%),
+    radial-gradient(ellipse at 50% 65%, rgba(93,46,95,.30), transparent 65%);
+  filter:blur(28px);
+}
+.reveal.visible::before{
+  animation:luxurySmoke 1.6s ease-out forwards;
+}
+@keyframes luxurySmoke{
+  0%{   opacity:0;   transform:scale(.92); }
+  30%{  opacity:1;   transform:scale(1); }
+  100%{ opacity:0;   transform:scale(1.18); }
+}
+
+/* Trust stats counters — FUTURE USE (abhi shop nayi hai, baad mein HTML wapas laga dena) */
+.stats-bar{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:30px;
+  max-width:900px;
+  margin:10px auto 0;
+  padding:30px 20px;
+}
+.stat-item{
+  text-align:center;
+  min-width:140px;
+}
+.stat-number{
+  font-size:42px;
+  font-weight:800;
+  color:#5D2E5F;
+  text-shadow:0 2px 8px rgba(183,110,121,.25);
+}
+.stat-label{
+  font-size:16px;
+  color:#7A2948;
+  margin-top:6px;
+  font-weight:600;
+}
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  padding:60px 20px;
+  max-width:1300px;
+  margin:0 auto;
+}
+.card{
+
+position:relative;
+
+overflow:hidden;
+
+border:none;
+
+border-radius:28px;
+
+background:rgba(255,255,255,.95);
+
+backdrop-filter:blur(18px);
+
+display:flex;
+
+flex-direction:column;
+
+transition:.45s ease;
+
+box-shadow:
+
+0 15px 40px rgba(0,0,0,.08);
+
+}
+
+.rating{
+    text-align:center;
+    color:#FFD700;
+    font-size:16px;
+    letter-spacing:2px;
+    margin-top:6px;
+}
+
+.card:hover{
+
+transform:
+
+translateY(-18px)
+
+scale(1.03);
+
+box-shadow:
+
+0 30px 60px rgba(0,0,0,.18),
+
+0 0 0 2px rgba(255,215,0,.35);
+
+}
+
+.card::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:70%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.45),
+
+transparent
+
+);
+
+transform:skewX(-25deg);
+
+transition:.8s;
+
+}
+.card h3{
+  text-align:center;
+  padding:15px 15px 5px;
+  color:#5D2E5F;
+  font-size:var(--fs-lg);
+  font-weight:700;
+}
+.order-btn{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:8px;
+
+margin:18px 18px 20px;
+
+padding:14px;
+
+position:relative;
+
+overflow:hidden;
+
+background:linear-gradient(
+
+135deg,
+
+#25D366,
+
+#1da851
+
+);
+
+color:white;
+
+border-radius:50px;
+
+font-weight:600;
+
+font-size:15px;
+
+text-decoration:none;
+
+transition:.35s;
+
+}
+
+.order-btn::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:60%;
+
+height:100%;
+
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);
+
+transform:skewX(-25deg);
+
+transition:.7s;
+
+}
+
+.order-btn:hover::before{
+
+left:150%;
+
+}
+
+
+
+
+.order-btn:hover{
+
+transform:
+
+translateY(-4px);
+
+box-shadow:
+
+0 12px 25px rgba(37,211,102,.35);
+
+}
+
+
+/* ============ WHY CHOOSE US ============ */
+.why-choose-us{
+    background:linear-gradient(180deg,rgba(138,64,109,.07),rgba(178,123,74,.04));
+    padding:60px 20px;
+}
+.why-title{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:100%;
+    margin:0 auto 30px;
+
+    position:relative;
+
+    font-size:36px;
+    font-family:'Cinzel',serif;
+    color:#5D2E5F;
+    letter-spacing:1px;
+    text-shadow:0 4px 15px rgba(183,110,121,.25);
+    gap:4px;
+}
+.why-icon{
+    width:105px;
+    height:105px;
+    object-fit:contain;
+    flex-shrink:0;
+}
+
+.why-title span{
+    display:inline-block;
+     margin-left:-12px;
+}
+
+.why-title::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:-12px;
+
+    width:160px;
+    height:5px;
+    border-radius:50px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #FFD700,
+        #B76E79,
+        #FFD700,
+        transparent
+    );
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.why-card{
+    position:relative;
+    overflow:hidden;
+
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,215,0,.28);
+    border-radius:28px;
+
+    padding:55px 22px 24px;
+    text-align:center;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.08),
+        0 0 0 rgba(255,215,0,0);
+
+    /* NEW */
+    opacity:0;
+    transform:translateY(70px);
+    transition:all .8s cubic-bezier(.22,1,.36,1);
+}
+
+
+
+
+
+.why-card:hover{
+
+transform:
+
+translateY(-14px)
+
+scale(1.04);
+
+box-shadow:
+
+0 20px 45px rgba(183,110,121,.22),
+
+0 0 30px rgba(255,215,0,.18);
+
+border-color:#FFD700;
+
+}
+
+.why-card h3{
+
+margin-top:14px;
+
+font-size:21px;
+
+font-weight:700;
+
+color:#5D2E5F;
+
+font-family:'Cinzel',serif;
+
+}
+
+.why-card p{
+
+margin-top:10px;
+
+font-size:15px;
+
+line-height:1.6;
+
+color:#666;
+
+}
+
+.icon{
+    width:130px;
+    height:130px;
+    margin:auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.icon img{
+    width:240px;
+    height:160px;
+    object-fit:contain;
+    transition:.4s;
+}
+.why-card:hover .icon img{
+    transform:scale(1.12) rotate(-6deg);
+}
+
+
+.why-icon{
+    width:110px;
+    height:110px;
+    object-fit:contain;
+
+    margin-right:4px;   /* PNG aur text ka gap kam */
+
+    vertical-align:middle;
+    transition:.4s;
+}
+
+.why-title:hover .why-icon{
+    transform:scale(1.1) rotate(-8deg);
+}
+
+.why-card{
+    opacity:0;
+    transform:translateY(70px);
+}
+
+
+
+
+
+
+
+/* ============ DIVIDER ============ */
+.fancy-divider{
+  height:3px;
+  border:none;
+  background:linear-gradient(to right,transparent,#B76E79,transparent);
+  margin:60px auto;
+  width:80%;
+  border-radius:20px;
+}
+
+/* ============ RATING HIGHLIGHT ============ */
+.rating-highlight{
+    position:relative;
+
+    width:fit-content;
+    max-width:90%;
+
+    margin:60px auto;   /* <-- Isse center aa jayega */
+
+    text-align:center;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    padding:28px 45px;
+
+    border-radius:30px;
+}
+
+@keyframes goldFall{
+  0%{ top:-10px; opacity:0; transform:translateX(0); }
+  10%{ opacity:.8; }
+  50%{ transform:translateX(12px); }
+  100%{ top:110%; opacity:0; transform:translateX(-12px); }
+}
+
+/* ============ GALLERY + REVIEWS ============ */
+.customer-gallery-section{
+  background:linear-gradient(180deg,rgba(138,64,109,.07),rgba(178,123,74,.04));
+  display:flex;
+  gap:25px;
+  align-items:stretch;
+  flex-wrap:wrap;
+  max-width:1300px;
+  margin:0 auto;
+  padding:60px 20px;
+}
+.gallery-slider{
+  flex:1;
+  min-width:300px;
+  height:560px;
+  position:relative;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 0 0 8px #F8F2E8,0 15px 35px rgba(183,110,121,.28);
+  border:4px solid #B76E79;
+}
+.gallery-slider img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:1;
+  transition:opacity 1s ease;
+}
+.gallery-slider::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:20px;
+  box-shadow:inset 0 0 40px rgba(93,46,95,.15);
+  pointer-events:none;
+}
+.gallery-dots{
+  position:absolute;
+  bottom:16px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:8px;
+  z-index:3;
+}
+.gallery-dots span{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:rgba(255,255,255,.5);
+  transition:.35s;
+}
+.gallery-dots span.active{
+  background:#FFD700;
+  width:22px;
+  border-radius:6px;
+}
+
+
+/* ===========================
+   PREMIUM REVIEW SECTION
+=========================== */
+
+.reviews-side{
+  flex:1;
+  min-width:320px;
+  background:linear-gradient(145deg,#FFF9F2,#F7EFE4);
+  border:3px solid rgba(183,110,121,.5);
+  border-radius:25px;
+  padding:25px;
+  max-height:560px;
+  overflow:hidden;
+  scroll-behavior:smooth;
+  box-shadow:0 15px 35px rgba(0,0,0,.12);
+  position:relative;
+}
+
+/* Golden Top Border */
+.reviews-side::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:5px;
+  background:linear-gradient(90deg,#FFD700,#F5C542,#B8860B,#FFD700);
+}
+
+.reviews-side h2{
+  color:#5D2E5F;
+  margin-bottom:22px;
+  text-align:center;
+  font-size:30px;
+  font-weight:700;
+  letter-spacing:1px;
+  position:relative;
+}
+
+.reviews-side h2::after{
+  content:"★★★★★";
+  display:block;
+  color:#D4AF37;
+  font-size:18px;
+  margin-top:8px;
+  letter-spacing:4px;
+}
+
+/* Review Card */
+
+.review-box{
+  background:rgba(255,255,255,.95);
+  padding:18px 20px;
+  margin-bottom:18px;
+  border-radius:18px;
+  border-left:6px solid #D4AF37;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  line-height:1.8;
+  transition:.35s ease;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Shine Effect */
+
+.review-box::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:60%;
+  height:100%;
+  background:linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,255,255,.7),
+      transparent);
+  transition:.8s;
+}
+
+.review-box:hover::before{
+  left:150%;
+}
+
+.review-box:hover{
+  transform:translateY(-6px);
+  box-shadow:0 18px 35px rgba(0,0,0,.15);
+  border-left:6px solid #B76E79;
+}
+
+
+/* ============ OWNER MESSAGE ============ */
+.owner-message{
+
+    padding:65px 20px;
+
+}
+
+.owner-card{
+
+    max-width:1000px;
+    margin:auto;
+
+    position:relative;
+    overflow:hidden;
+
+    background:rgba(255,255,255,.82);
+    backdrop-filter:blur(20px);
+
+    border:2px solid rgba(255,215,0,.35);
+    border-radius:28px;
+
+    padding:50px 42px;
+
+    box-shadow:
+    0 15px 40px rgba(93,46,95,.12);
+
+    transition:.45s;
+}
+
+.owner-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 25px 60px rgba(183,110,121,.22),
+    0 0 35px rgba(255,215,0,.22);
+
+    border-color:#FFD700;
+
+}
+
+/* Golden Shine */
+
+.owner-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-140%;
+
+    width:70%;
+    height:100%;
+
+    background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.55),
+    transparent);
+
+    transform:skewX(-25deg);
+
+    transition:1.2s;
+
+}
+
+.owner-card:hover::before{
+
+    left:170%;
+
+}
+
+/* Heading */
+
+.owner-title{
+
+    text-align:center;
+
+    font-size:34px;
+
+    color:#5D2E5F;
+
+    font-family:'Cinzel',serif;
+
+    margin-bottom:35px;
+
+    position:relative;
+
+}
+
+.owner-title::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    bottom:-14px;
+
+    width:170px;
+
+    height:5px;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+    90deg,
+    transparent,
+    #FFD700,
+    #B76E79,
+    #FFD700,
+    transparent);
+
+}
+
+/* Quotes */
+
+.quote{
+
+    position:absolute;
+
+    font-size:90px;
+
+    color:rgba(255,215,0,.18);
+
+    font-family:serif;
+
+    pointer-events:none;
+
+}
+
+.quote-left{
+
+    left:35px;
+
+    top:80px;
+
+}
+
+.quote-right{
+
+    right:35px;
+
+    bottom:35px;
+
+}
+
+/* Text */
+
+.owner-text{
+
+    text-align:center;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    color:#555;
+
+}
+
+/* Signature */
+
+.owner-sign{
+
+    margin-top:40px;
+
+    text-align:right;
+
+    color:#5D2E5F;
+
+    font-size:18px;
+
+    font-style:italic;
+
+}
+
+.owner-sign span{
+
+    display:block;
+
+    margin-top:8px;
+
+    font-size:24px;
+
+    font-family:'Cinzel',serif;
+
+    color:#B76E79;
+
+}
+
+/* ============ CONTACT ============ */
+.about{
+  background:linear-gradient(180deg,rgba(138,64,109,.07),rgba(178,123,74,.04));
+  padding:60px 20px;
+  text-align:center;
+}
+.about h2{
+  color:#5D2E5F;
+  font-size:42px;
+  font-weight:800;
+  margin-bottom:25px;
+  letter-spacing:1px;
+  text-shadow:0 2px 8px rgba(183,110,121,.25);
+}
+.about h2::after{
+  content:"";
+  width:280px;
+  max-width:80%;
+  height:6px;
+  background:linear-gradient(to right,#B76E79,#FFD700,#B76E79);
+  display:block;
+  margin:12px auto 0;
+  border-radius:20px;
+}
+#store-status{
+  font-size:20px;
+  font-weight:bold;
+  margin-bottom:15px;
+  text-align:center;
+}
+.contact-wrapper{
+  max-width:1300px;
+  margin:40px auto;
+  padding:28px;
+
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+
+  background:rgba(255,255,255,.72);
+  backdrop-filter:blur(20px);
+
+  border:2px solid rgba(183,110,121,.35);
+  border-radius:32px;
+
+  box-shadow:
+      0 18px 45px rgba(93,46,95,.12),
+      0 0 35px rgba(255,215,0,.10);
+
+  overflow:hidden;
+  position:relative;
+
+  transition:.45s;
+}
+
+.contact-wrapper::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:70%;
+
+height:100%;
+
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.45),
+transparent
+);
+
+transform:skewX(-25deg);
+
+transition:1.2s;
+
+}
+
+.contact-wrapper:hover::before{
+
+left:150%;
+
+}
+
+.contact-wrapper:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+
+0 25px 55px rgba(183,110,121,.18),
+
+0 0 45px rgba(255,215,0,.16);
+
+}
+.contact-details{
+
+    flex:1;
+    min-width:280px;
+
+    background:rgba(255,255,255,.88);
+    backdrop-filter:blur(15px);
+
+    padding:32px;
+
+    border-radius:24px;
+
+    border:1px solid rgba(255,215,0,.35);
+
+    text-align:left;
+
+    line-height:2;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.45s;
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,.06);
+
+}
+
+.contact-details::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-140%;
+
+width:70%;
+
+height:100%;
+
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.55),
+transparent
+);
+
+transform:skewX(-25deg);
+
+transition:1.1s;
+
+}
+
+.contact-details:hover::before{
+
+left:170%;
+
+}
+
+.contact-details:hover{
+
+transform:translateY(-8px);
+
+border-color:#FFD700;
+
+box-shadow:
+
+0 18px 40px rgba(183,110,121,.18),
+
+0 0 25px rgba(255,215,0,.18);
+
+}
+
+.contact-details p{
+
+margin:14px 0;
+
+font-size:18px;
+
+color:#444;
+
+display:flex;
+
+align-items:flex-start;
+
+gap:10px;
+
+line-height:1.8;
+
+}
+
+
+.contact-map{
+  flex:1;
+  min-width:280px;
+  background:white;
+  padding:12px;
+  border-radius:20px;
+  border:2px solid #E5C7D8;
+}
+.contact-map iframe{
+  width:100%;
+  height:100%;
+  min-height:350px;
+  border-radius:15px;
+  border:4px solid #B76E79;
+  box-shadow:0 0 0 8px #F8F2E8,0 8px 20px rgba(183,110,121,.2);
+}
+
+/* Directions button */
+.directions-btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:12px 22px;
+  background:#5D2E5F;
+  color:white;
+  text-decoration:none;
+  border-radius:12px;
+  font-weight:bold;
+  font-size:16px;
+  transition:background .3s ease,transform .2s ease;
+  box-shadow:0 5px 15px rgba(93,46,95,.3);
+}
+.directions-btn:hover{
+  background:#7A2948;
+  transform:translateY(-4px);
+}
+
+/* Click-to-call link */
+.call-link{
+  color:inherit;
+  text-decoration:none;
+  font-weight:bold;
+}
+.call-link:hover{
+  text-decoration:underline;
+}
+
+/* Festival greeting banner */
+#festiveGreeting{
+  display:none;
+  text-align:center;
+  padding:10px;
+  font-size:18px;
+  font-weight:bold;
+  color:#5D2E5F;
+  background:linear-gradient(90deg,#FFF3D6,#FDE8F0,#FFF3D6);
+  border-bottom:2px solid #B76E79;
+  letter-spacing:.5px;
+}
+
+/* ============ WHATSAPP FLOAT ============ */
+.whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+
+    width:78px;
+    height:78px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:transparent;
+    border:none;
+    box-shadow:none;
+
+    z-index:9999;
+
+    animation:floating 2.5s ease-in-out infinite;
+}
+
+.whatsapp:hover{
+    transform:scale(1.12);
+}
+
+.whatsapp-icon{
+    width:74px;
+    height:74px;
+    object-fit:contain;
+    display:block;
+}
+
+.whatsapp img{
+  width:115%;
+  height:115%;
+  object-fit:cover;
+  border-radius:50%;
+}
+
+@keyframes floating{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-10px); }
+}
+
+/* ============ CHATBOT ============ */
+.chatbot{
+  position:fixed;
+  right:20px;
+  bottom:100px;
+  z-index:9999;
+  perspective:900px;
+}
+
+.chat-btn{
+    position:absolute;
+    right:0;
+    bottom:0;
+
+    background:transparent;
+    border:none;
+
+    width:80px;
+    height:80px;
+
+    padding:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    box-shadow:none;
+
+    animation:floating 2.5s ease-in-out infinite;
+
+    transform-style:preserve-3d;
+
+    z-index:9999;
+}
+
+.chat-btn:hover{
+    transform:scale(1.08);
+}
+
+@keyframes robotSpin360{
+  0%{   transform:rotateY(0deg)   rotateX(0deg)   scale(1); }
+  20%{  transform:rotateY(110deg) rotateX(10deg)  scale(1.08); }
+  45%{  transform:rotateY(205deg) rotateX(-8deg)  scale(1.12); }
+  70%{  transform:rotateY(295deg) rotateX(6deg)   scale(1.06); }
+  100%{ transform:rotateY(360deg) rotateX(0deg)   scale(1); }
+}
+
+.chat-btn.spinning{
+  animation:robotSpin360 1.3s cubic-bezier(.45,.05,.25,1) 1;
+}
+
+.chat-icon{
+  width:110px;
+  height:140px;
+  object-fit:contain;
+  display:block;
+}
+
+
+.chat-box{
+    position:absolute;
+    bottom:85px;
+    right:0;
+    width:340px;
+
+    background:linear-gradient(
+        145deg,
+        rgba(93,46,95,.97),
+        rgba(74,35,90,.98)
+    );
+
+    backdrop-filter:blur(20px);
+
+    border:2px solid rgba(212,175,55,.45);
+
+    border-radius:24px;
+
+    padding:22px;
+
+    color:white;
+
+   border:1.5px solid rgba(212,175,55,.55);
+
+   box-shadow:
+   0 12px 35px rgba(0,0,0,.35),
+   0 0 15px rgba(212,175,55,.18);
+   display:none;
+
+   overflow:visible;
+}
+
+.chat-box p{
+    color:#ffffff;
+    line-height:1.7;
+    margin-bottom:10px;
+}
+
+.chat-box b{
+    color:#FFD700;
+}
+@keyframes chatPopup{
+  from{ opacity:0; transform:scale(.85); }
+  to{ opacity:1; transform:scale(1); }
+}
+
+/* Doraemon flying around chat-box border */
+
+.chat-box::after{
+  content:"";
+  position:absolute;
+  width:60px;
+  height:60px;
+  background:url('doremon.png') no-repeat center;
+  background-size:contain;
+  animation:doremonMove 8s linear infinite;
+  z-index:20;
+  pointer-events:none;
+}
+@keyframes doremonMove{
+  /* baaye se daaye (upar) — face right */
+  0%{ top:-35px; left:-35px; transform:scaleX(-1); }
+  24%{ top:-35px; left:calc(100% - 15px); transform:scaleX(-1); }
+  /* daaye side neeche aa raha — face wahi rehne do */
+  25%{ top:-35px; left:calc(100% - 15px); transform:scaleX(-1); }
+  49%{ top:calc(100% - 15px); left:calc(100% - 15px); transform:scaleX(-1); }
+  /* daaye se baaye (neeche) — face left (flip) */
+  50%{ top:calc(100% - 15px); left:calc(100% - 15px); transform:scaleX(1); }
+  74%{ top:calc(100% - 15px); left:-35px; transform:scaleX(1); }
+  /* baaye side upar jaa raha — face left rehne do */
+  75%{ top:calc(100% - 15px); left:-35px; transform:scaleX(1); }
+  99%{ top:-35px; left:-35px; transform:scaleX(1); }
+  100%{ top:-35px; left:-35px; transform:scaleX(-1); }
+}
+.chat-box button{
+
+background:#FFD700;
+
+color:#4A235A;
+
+border:none;
+
+padding:10px 18px;
+
+border-radius:12px;
+
+font-weight:600;
+
+cursor:pointer;
+
+margin-top:10px;
+
+transition:.3s;
+
+}
+
+.chat-box button:hover{
+
+background:white;
+
+transform:translateY(-2px);
+
+}
+
+.badge{
+
+position:absolute;
+
+top:15px;
+
+left:15px;
+
+background:#D4AF37;
+
+color:#222;
+
+padding:8px 14px;
+
+border-radius:30px;
+
+font-size:12px;
+
+font-weight:700;
+
+z-index:5;
+
+box-shadow:0 6px 18px rgba(212,175,55,.3);
+
+}
+
+.bestseller{
+
+background:#ff4d6d;
+
+color:white;
+
+}
+
+.trending{
+
+background:linear-gradient(135deg,#8A406D,#5D2E5F);
+
+color:white;
+
+}
+
+.popular{
+
+background:linear-gradient(135deg,#25D366,#1da851);
+
+color:white;
+
+}
+
+
+
+/* ============ FOOTER ============ */
+footer{
+  background:linear-gradient(135deg,#3f124d,#5d2e5f,#8a406d);
+  color:white;
+  text-align:center;
+  padding:45px 20px 35px;
+  margin-top:50px;
+  position:relative;
+  border-top:2px solid transparent;
+  border-image:linear-gradient(90deg,transparent,#FFD700,#B76E79,#FFD700,transparent) 1;
+  box-shadow:0 -10px 35px rgba(0,0,0,.18);
+}
+footer h3{
+  font-size:28px;
+  font-weight:700;
+  letter-spacing:1px;
+  font-family:'Cinzel',serif;
+  background:linear-gradient(90deg,#fff 35%,#FFE9A8 50%,#fff 65%);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:nameShine 4s linear infinite;
+}
+footer p{
+  font-size:16px;
+  margin-top:8px;
+  color:#F5D7A1;
+  letter-spacing:.3px;
+}
+.footer-inner{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.footer-text{
+  text-align:center;
+}
+.footer-squirrel{
+  width:120px;
+  height:120px;
+  object-fit:contain;
+  mix-blend-mode:screen;
+}
+@keyframes squirrelBreathe{
+  0%,100%{ transform:scale(1) rotate(0deg); }
+  50%{ transform:scale(1.04) rotate(-2deg); }
+}
+.footer-thanks{
+  font-size:20px;
+  font-weight:600;
+  color:#FFE9A8;
+  margin-bottom:5px;
+  letter-spacing:.5px;
+}
+
+/* ============ MOBILE ============ */
+@media(max-width:768px){
+  #splash .splash-img-wrap{ width:90%; }
+  #splash h1{ font-size:28px; }
+  .butterfly{ font-size:35px; }
+  .logo{ flex-direction:column; text-align:center; }
+  .logo h2{ font-size:24px; }
+  .hero-title-glass{ gap:6px; }
+  .small-line{ font-size:14px; letter-spacing:2px; }
+  .big-line{ font-size:34px; }
+  .hero p{ font-size:17px; }
+  .products-title{ font-size:28px; }
+  .about h2{ font-size:30px; }
+  .card img{ height:240px; }
+  .gallery-slider{ height:350px; }
+}
+
+.hero-subtitle{
+
+margin-top:18px;
+
+font-size:20px;
+
+opacity:.95;
+
+font-weight:400;
+
+}
+
+.hero-buttons{
+
+margin-top:35px;
+
+display:flex;
+
+justify-content:center;
+
+gap:18px;
+
+flex-wrap:wrap;
+
+}
+
+.hero-btn{
+
+text-decoration:none;
+
+padding:14px 28px;
+
+border-radius:50px;
+
+font-weight:600;
+
+transition:.35s;
+
+display:inline-block;
+
+}
+
+.primary-btn{
+
+background:#D4AF37;
+
+color:#222;
+
+}
+
+.primary-btn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 12px 30px rgba(212,175,55,.35);
+
+}
+
+.secondary-btn{
+
+background:white;
+
+color:#5D2E5F;
+
+}
+
+.secondary-btn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 12px 30px rgba(255,255,255,.35);
+
+}
+
+.hero-features{
+
+margin-top:35px;
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+font-size:17px;
+
+font-weight:500;
+
+}
+
+.hero-features span{
+
+background:rgba(255,255,255,.12);
+
+padding:10px 18px;
+
+border-radius:30px;
+
+backdrop-filter:blur(10px);
+
+}
+
+.scroll-down{
+
+margin-top:45px;
+
+font-size:36px;
+
+animation:scrollBounce 1.8s infinite;
+
+}
+
+@keyframes scrollBounce{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(10px);
+
+}
+
+}
+
+.rating-section{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    margin:60px 0;
+}
+
+.rating-board{
+    text-align:center;
+}
+
+
+.mini-text{
+
+text-align:center;
+
+font-size:var(--fs-xs);
+
+color:#888;
+
+margin:8px 15px 18px;
+
+}
+/* ==========================
+   Premium Cursor Glow
+========================== */
+
+.cursor-glow{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 22px;
+    height: 22px;
+
+    border-radius: 50%;
+
+    background: rgba(212,175,55,.35);
+
+    box-shadow:
+        0 0 15px rgba(212,175,55,.5),
+        0 0 35px rgba(212,175,55,.3);
+
+    pointer-events: none;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 99999;
+
+    transition:
+        width .2s ease,
+        height .2s ease,
+        background .2s ease;
+}
+
+
+/* ===== Announcement Bar ===== */
+
+.announcement-bar{
+
+    width:100%;
+
+    background:linear-gradient(90deg,#5D2E5F,#7A3D7C);
+
+    color:#fff;
+
+    text-align:center;
+
+    padding:12px 15px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    letter-spacing:.4px;
+
+    overflow:hidden;
+
+    white-space:nowrap;
+
+    animation:announcementGlow 3s ease-in-out infinite;
+
+}
+
+@keyframes announcementGlow{
+
+    0%,100%{
+        opacity:1;
+    }
+
+    50%{
+        opacity:.75;
+    }
+
+}
+
+.products-subtitle{
+    text-align:center;
+    color:#666;
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+.card:hover::before{
+    left:150%;
+}
+
+
+
+/* ============ BACK TO TOP ============ */
+#backToTop{
+  position:fixed;
+  left:20px;
+  bottom:20px;
+  width:52px;
+  height:52px;
+  background:linear-gradient(135deg,#3f124d,#5d2e5f,#8a406d);
+  color:#FFD700;
+  border:1.5px solid rgba(255,215,0,.5);
+  border-radius:50%;
+  font-size:22px;
+  cursor:pointer;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  box-shadow:0 8px 22px rgba(0,0,0,.28),0 0 12px rgba(255,215,0,.18);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(12px);
+  transition:opacity .35s ease,transform .35s ease,background .3s ease,visibility .35s;
+}
+#backToTop.show{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+#backToTop:hover{
+  background:linear-gradient(135deg,#5d2e5f,#8a406d,#B76E79);
+  transform:translateY(-5px);
+  box-shadow:0 12px 28px rgba(0,0,0,.32),0 0 16px rgba(255,215,0,.3);
+}
+
+/* Accessibility: respect reduced motion */
+@media(prefers-reduced-motion:reduce){
+  *{ animation:none !important; }
+}
+
+
+/*================ PREMIUM RATING SECTION ================*/
+
+.rating-section{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:70px 0;
+}
+
+.rating-board{
+
+    width:700px;      /* pehle 420 tha */
+    max-width:95%;
+
+    padding:60px 60px 40px;
+
+    ...
+}
+
+.rating-board:hover{
+    transform:translateY(-10px) scale(1.03);
+
+    border-color:#FFD700;
+
+    box-shadow:
+        0 25px 50px rgba(183,110,121,.28),
+        0 0 35px rgba(255,215,0,.25);
+}
+.chain{
+    position:absolute;
+
+    top:-38px;
+
+    width:4px;
+    height:42px;
+
+    background:linear-gradient(#FFD700,#B76E79);
+
+    border-radius:20px;
+}
+
+.chain.left{
+    left:90px;
+}
+
+.chain.right{
+    right:90px;
+}
+
+.chain::after{
+    content:"";
+
+    position:absolute;
+
+    bottom:-8px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:16px;
+    height:16px;
+
+    border-radius:50%;
+
+    background:#FFD700;
+
+    box-shadow:0 0 10px rgba(255,215,0,.5);
+}
+
+.stars{
+
+    font-size:34px;
+
+    letter-spacing:6px;
+
+    animation:starGlow 2s ease-in-out infinite;
+}
+
+@keyframes starGlow{
+
+0%,100%{
+transform:scale(1);
+filter:drop-shadow(0 0 0px gold);
+}
+
+50%{
+transform:scale(1.08);
+filter:drop-shadow(0 0 10px gold);
+}
+
+}
+
+.rating-ribbon{
+
+    display:inline-block;
+
+    margin:25px 0;
+
+    padding:12px 45px;
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:white;
+
+    background:linear-gradient(135deg,#B76E79,#5D2E5F);
+
+    border-radius:50px;
+
+    box-shadow:0 8px 20px rgba(93,46,95,.35);
+
+    position:relative;
+}
+
+.rating-ribbon::before,
+.rating-ribbon::after{
+
+content:"";
+
+position:absolute;
+
+top:50%;
+
+transform:translateY(-50%);
+
+width:22px;
+height:22px;
+
+background:#FFD700;
+
+clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);
+}
+
+.rating-ribbon::before{
+
+left:-12px;
+
+}
+
+.rating-ribbon::after{
+
+right:-12px;
+
+}
+
+.rating-board::before{
+
+content:"";
+
+position:absolute;
+
+top:-100%;
+
+left:-40%;
+
+width:60%;
+
+height:300%;
+
+background:rgba(255,255,255,.35);
+
+transform:rotate(25deg);
+
+transition:.8s;
+
+}
+
+.rating-board:hover::before{
+
+left:140%;
+
+}
+
+.why-card{
+    opacity:0;
+    transform:translateY(70px);
+}
+
+.why-card.show{
+    animation:jumpIn .8s cubic-bezier(.18,.89,.32,1.28) forwards;
+}
+
+
+@keyframes jumpIn{
+
+    0%{
+        opacity:0;
+        transform:translateY(70px) scale(.75);
+    }
+
+    55%{
+        opacity:1;
+        transform:translateY(-18px) scale(1.08);
+    }
+
+    75%{
+        transform:translateY(8px) scale(.98);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+</style>
+</head>
+
+<body class="splash-active">
+
+<div id="scrollProgress"></div>
+<div class="cursor-glow"></div>
+
+
+<!-- ============ FESTIVAL GREETING ============ -->
+<div id="festiveGreeting"></div>
+
+<!-- ============ SPLASH SCREEN ============ -->
+<div id="splash">
+  <div class="butterfly b1">🦋</div>
+  <div class="butterfly b2">🦋</div>
+  <div class="butterfly b3">🦋</div>
+  <div class="butterfly b4">🦋</div>
+
+  <div class="sparkle s1"></div>
+  <div class="sparkle s2"></div>
+  <div class="sparkle s3"></div>
+  <div class="sparkle s4"></div>
+  <div class="sparkle s5"></div>
+
+  <div class="sparkle-line"></div>
+
+  <div class="splash-img-wrap">
+    <img src="welcome.png" alt="Welcome to Bhole Sawariya">
+    <img src="welcome-closed.png" class="eyes-closed" alt="">
+  </div>
+
+  <div class="magic-line-wrap">
+    <div class="magic-line"></div>
+  </div>
+
+  <h1>Welcome</h1>
+
+  <div class="loading-container">
+    <div class="loading-bar"></div>
+  </div>
+  <div id="loadingText">0%</div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="logo">
+    <img src="logo shop.jpg" class="logo-img" alt="Bhole Sawariya logo">
+    <div class="logo-text">
+      <h2>Bhole Sawariya - A to Z Collections</h2>
+      <p class="tagline">पसंद आपकी, भरोसा साँवरिया का</p>
+    </div>
+    <video src="teddy.mp4" id="teddy" autoplay loop muted playsinline></video>
+  </div><div class="header-contact">
+
+    <a href="tel:+919528980787" class="call-card">
+
+        <div class="phone-icon">
+            📞
+        </div>
+
+        <div class="phone-text">
+
+            <span class="call-label">
+                CALL NOW
+            </span>
+
+            <span class="phone-number">
+                +91 95289 80787
+            </span>
+
+        </div>
+
+    </a>
+
+</div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-bubbles" aria-hidden="true">
+      <span class="bubble b1"></span>
+      <span class="bubble b2"></span>
+      <span class="bubble b3"></span>
+      <span class="bubble b4"></span>
+      <span class="bubble b5"></span>
+      <span class="bubble b6"></span>
+      <span class="bubble b7"></span>
+    </div>
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            ✨ Premium Fashion Store • Rishikesh
+        </div>
+
+        <div class="hero-title-glass">
+          <h1 id="heroTitle">
+            <small id="heroSmall" class="shuffle-line small-line">WELCOME TO</small>
+            <span id="heroBig" class="shuffle-line big-line">Bhole Sawariya</span>
+          </h1>
+        </div>
+
+        <p class="hero-subtitle">
+            Premium Ladies Collection • Cosmetics • Kids Toys • Gifts • Fashion Accessories
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#products" class="hero-btn primary-btn">
+                🛍 Explore Collection
+            </a>
+
+            <a href="https://wa.me/919528980787"
+               class="hero-btn secondary-btn"
+               target="_blank">
+
+                📲 WhatsApp Order
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="scroll-down">
+        ⌄
+    </div>
+
+</section>
+<div id="announcementBar" class="announcement-bar">
+    🟢 Latest Collection Available • Visit Our Shop or Contact on WhatsApp
+</div>
+
+<h2 class="products-title">Our Collection</h2>
+
+  <p class="products-subtitle">
+   Handpicked Fashion • Toys • Gifts • Cosmetics • Accessories • Purse • Daily items
+   </p>
+
+<section class="products" id="products">
+
+ <div class="card">
+
+  <span class="badge">NEW</span>
+
+  <img src="ear.png" alt="Earings">
+
+  <h3>Earings</h3>
+
+  <div class="rating">
+
+  ★★★★★
+
+  </div>
+
+  <p class="mini-text">
+
+  Premium Collection
+
+  </p>
+  <a class="order-btn" target="_blank"
+  href="https://wa.me/919528980787?text=Hi%2C%20I%20am%20interested%20in%20your%20Earrings.">
+  Order on WhatsApp
+  </a>
+
+</div>
+
+  <div class="card">
+    <img src="CLATURE.jpg" alt="Cluture">
+    <h3>Clutcher</h3>
+    <a class="order-btn" target="_blank" href="https://wa.me/919528980787?text=Hi%2C%20I%20am%20interested%20in%20your%20Clutcher.">Order on WhatsApp</a>
+  </div>
+
+  <div class="card">
+    <span class="badge trending">TRENDING</span>
+    <img src="lips.png" alt="Lipstick">
+    <h3>Lipstick</h3>
+    <a class="order-btn" target="_blank" href="https://wa.me/919528980787?text=Hi%2C%20I%20am%20interested%20in%20your%20Lipstick.">Order on WhatsApp</a>
+  </div>
+
+  <div class="card">
+    <img src="nail paint.png" alt="Nail Paint">
+    <h3>Nail Paint</h3>
+    <a class="order-btn" target="_blank" href="https://wa.me/919528980787?text=Hi%2C%20I%20am%20interested%20in%20your%20Nail%20Paint.">Order on WhatsApp</a>
+  </div>
+
+  <div class="card">
+    <img src="men wellet.png" alt="Men's Wallet">
+    <h3>Men's Wallet</h3>
+    <a class="order-btn" target="_blank" href="https://wa.me/919528980787?text=Hi%2C%20I%20am%20interested%20in%20your%20Men%27s%20Wallet.">Order on WhatsApp</a>
+  </div>
+
+
+  <div class="card">
+   <span class="badge bestseller">BEST SELLER</span>
+    <img src="purse l.png" alt="Ladies Purse">
+    <h3>Ladies Purse</h3>
+    <a class="order-btn" target="_blank" href="https://wa.me/919528980787?text=Hi%2C%20I%20am%20interested%20in%20your%20Ladies%20Purse.">Order on WhatsApp</a>
+  </div>
+
+  <div class="card">
+    <img src="umb.png" alt="Umbrella">
+    <h3>Umbrella</h3>
+    <a class="order-btn" target="_blank" href="https://wa.me/919528980787?text=Hi%2C%20I%20am%20interested%20in%20your%20Umbrella.">Order on WhatsApp</a>
+  </div>
+
+  <div class="card">
+    <span class="badge popular">POPULAR</span>
+    <img src="m c.png" alt="Gift Collection">
+    <h3>Gift Collection</h3>
+    <a class="order-btn" target="_blank" href="https://wa.me/919528980787?text=Hi%2C%20I%20am%20interested%20in%20your%20Gift%20Collection.">Order on WhatsApp</a>
+  </div>
+
+  <div class="card">
+    <span class="badge trending">KIDS FAVOURITE</span>
+    <img src="ted.png" alt="kids toys">
+    <h3>Toys</h3>
+    <a class="order-btn" target="_blank" href="https://wa.me/919528980787?text=Hi%2C%20I%20am%20interested%20in%20your%20Umbrella.">Order on WhatsApp</a>
+   </div>
+
+</section>
+
+<hr class="fancy-divider">
+
+<!-- ============ WHY CHOOSE US ============ -->
+<section class="why-choose-us reveal">
+
+    <h2 class="why-title">
+        <img src="why.png" class="why-icon" alt="Why Choose Us">
+        <span>Why Choose Us?</span>
+    </h2>
+
+    <div class="why-grid">
+
+        <div class="why-card">
+            <div class="icon">
+                <img src="price.png" alt="Best Prices">
+            </div>
+            <h3>Best Prices</h3>
+        </div>
+
+        <div class="why-card">
+            <div class="icon">
+                <img src="collection.png" alt="Latest Collection">
+            </div>
+            <h3>Latest Collection</h3>
+        </div>
+
+        <div class="why-card">
+            <div class="icon">
+                <img src="quality.png" alt="Trusted Quality">
+            </div>
+            <h3>Trusted Quality</h3>
+        </div>
+
+        <div class="why-card">
+            <div class="icon">
+                <img src="customer.png" alt="Happy Customers">
+            </div>
+            <h3>Happy Customers</h3>
+        </div>
+
+    </div>
+
+</section>
+
+<hr class="fancy-divider">
+
+<!-- ============ RATING HIGHLIGHT ============ -->
+<section class="rating-section">
+
+    <div class="rating-board">
+
+        <span class="chain left"></span>
+        <span class="chain right"></span>
+
+        <div class="stars">
+            ⭐ ⭐ ⭐ ⭐ ⭐
+        </div>
+
+        <div class="rating-ribbon">
+            4.7 / 5
+        </div>
+
+        <h3>Google Customer Reviews</h3>
+
+        <p>❤️ Trusted by Happy Customers</p>
+         
+    </div>
+
+</section>
+
+<!-- ============ GALLERY + REVIEWS ============ -->
+<section class="customer-gallery-section">
+  <div class="gallery-slider">
+    <img id="galleryImage" src="gallery1.jpg" alt="Customer gallery">
+    <div class="gallery-dots" id="galleryDots"></div>
+  </div>
+  <div class="reviews-side">
+    <h2>Happy Customers 😍</h2>
+
+    <div class="review-box">
+      ⭐⭐⭐⭐⭐ Priya Sharma <br>
+      Bahut achhi collection hai aur rates bhi bahut acche hain.
+    </div>
+    <div class="review-box">
+      ⭐⭐⭐⭐⭐ Neha Gupta <br>
+      Ladies items aur toys dono ki variety bahut achhi hai.
+    </div>
+    <div class="review-box">
+      ⭐⭐⭐⭐⭐ Rohit Verma <br>
+      Gift items aur purse collection bahut premium hai.
+    </div>
+    <div class="review-box">
+      ⭐⭐⭐⭐⭐ Geetanjali Chauhan <br>
+      Most recommended shop for cosmetics and toys. So reasonable rates. I loved it.
+    </div>
+    <div class="review-box">
+      ⭐⭐⭐⭐⭐ Rahul Kumar <br>
+      Maine apni girlfriend ke liye purse khareeda tha. Inke paas sale wale aur bridal purse bahut acche hain. Ye shop Janta Footwear ke paas hai, patli wali gali mein.
+    </div>
+    <div class="review-box">
+      ⭐⭐⭐⭐⭐ Lovely Kumari <br>
+      Maine apne parlour ka aadha saaman isi shop se liya hai, sahi rate mein mil gaya.
+    </div>
+    <div class="review-box">
+      ⭐⭐⭐⭐⭐ Chhaya Jain <br>
+      Nice shop with many variety of purse.
+    </div>
+  </div>
+</section>
+
+<!-- ============ OWNER MESSAGE ============ -->
+<section class="owner-message reveal">
+
+    <div class="owner-card">
+
+        <h2 class="owner-title">
+            👑 Owner's Message
+        </h2>
+
+        <div class="quote quote-left">❝</div>
+
+        <p class="owner-text">
+            Welcome to <b>Bhole Sawariya A-Z Collection.</b><br><br>
+
+            We are committed to providing quality products, trendy collections and excellent customer service at affordable prices.
+
+            Every customer is valuable for us and your trust inspires us to serve you even better.
+
+            Thank you for choosing us and being a part of our journey. 😊
+        </p>
+
+        <div class="quote quote-right">❞</div>
+
+        <div class="owner-sign">
+            ✍ With Regards<br>
+            <span>Bhole Sawariya A-Z Collection</span>
+        </div>
+
+    </div>
+
+</section>
+
+<hr class="fancy-divider">
+
+<!-- ============ CONTACT ============ -->
+<section class="about reveal">
+  <h2>Contact Us</h2>
+  <p id="store-status"></p>
+  <div class="contact-wrapper">
+    <div class="contact-details">
+      <p>📞 <a href="tel:+919528980787" class="call-link">9528980787</a></p>
+      <p>📍 23, Main Bazar, Mahadev Dharamshala ke Samne, Near Daya Stamp, Ghaat Road, Rishikesh, Uttarakhand - 249201</p>
+      <p>🕒 9:30 AM - 9 PM</p>
+      <p>📅 Weekly Off: Thursday</p>
+      <a class="directions-btn" target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=Bhole+Sawariya+A+to+Z+Collections+Rishikesh">🧭 Get Directions</a>
+    </div>
+    <div class="contact-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13806.542725529149!2d78.299226!3d30.1046186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39091778326e1b9d%3A0xf3aca6911442109e!2sBhole%20sawariya%20-%20A%20to%20Z%20collections!5e0!3m2!1sen!2sin!4v1781250625402!5m2!1sen!2sin"
+        allowfullscreen=""
+        loading="lazy"
+        title="Bhole Sawariya store location">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHATBOT ============ -->
+
+<div class="chatbot">
+
+    <button class="chat-btn" onclick="toggleChat()">
+        <img src="chatbot-front.png" class="chat-icon" alt="Chat with us">
+    </button>
+
+    <div class="chat-box" id="chatBox">
+
+        <div id="chatContent">
+
+        <div class="chat-header">
+            🤖 Bhole AI
+            <span>🟢 Online</span>
+        </div>
+
+            <p>🙏 <b>Namaste!</b></p>
+
+            <p>
+                Welcome to <b>Bhole Sawariya Collection</b>.<br>
+                Main aapki kis tarah madad kar sakta hoon?
+            </p>
+
+            <div class="chat-options">
+
+                <button onclick="showAnswer('purse')">👜 Purse Collection</button>
+
+                <button onclick="showAnswer('cosmetics')">💄 Cosmetics</button>
+
+                <button onclick="showAnswer('toys')">🧸 Toys</button>
+
+                <button onclick="showAnswer('location')">📍 Shop Location</button>
+
+                <button onclick="showAnswer('timing')">🕒 Store Timing</button>
+
+                <button onclick="showAnswer('contact')">📞 Contact</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ============ WHATSAPP FLOAT ============ -->
+<a href="https://wa.me/919528980787" target="_blank" class="whatsapp" aria-label="Chat on WhatsApp">
+  <img src="Whatsapp.png" alt="WhatsApp">
+</a>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-text">
+      <h3>Bhole Sawariya - A to Z Collections</h3>
+      <p>Rishikesh, Uttarakhand, 249201</p>
+    </div>
+    <video class="footer-squirrel" autoplay loop muted playsinline poster="squirrel.mp4">
+      <source src="squirrel.mp4" type="video/mp4">
+    </video>
+  </div>
+</footer>
+
+<!-- ============ BACK TO TOP ============ -->
+<button id="backToTop" onclick="scrollToTop()" aria-label="Go to top">↑</button>
+
+<script>
+// ===== Splash screen hide =====
+window.addEventListener("load", () => {
+  const splash = document.getElementById("splash");
+  const txt = document.getElementById("loadingText");
+
+  // animate loading text 0 -> 100
+  let pct = 0;
+  const counter = setInterval(() => {
+    pct += 5;
+    if (pct > 100) pct = 100;
+    if (txt) txt.innerHTML = pct + "%";
+    if (pct >= 100) clearInterval(counter);
+  }, 90);
+
+  if (!splash) return;
+
+  setTimeout(() => {
+    splash.style.opacity = "0";
+    setTimeout(() => {
+      splash.style.display = "none";
+      document.body.classList.remove("splash-active");
+    }, 1000);
+  }, 2500);
+});
+
+// ===== Chatbot toggle =====
+function toggleChat() {
+  const box = document.getElementById("chatBox");
+  box.style.display = (box.style.display === "block") ? "none" : "block";
+}
+
+// ===== Chatbot icon 360 spin on click =====
+const chatBtnEl = document.querySelector(".chat-btn");
+if(chatBtnEl){
+  chatBtnEl.addEventListener("click", function(){
+    chatBtnEl.classList.remove("spinning");
+    void chatBtnEl.offsetWidth; // force reflow so animation restarts every click
+    chatBtnEl.classList.add("spinning");
+  });
+  chatBtnEl.addEventListener("animationend", function(e){
+    if(e.animationName === "robotSpin360"){
+      chatBtnEl.classList.remove("spinning");
+    }
+  });
+}
+
+// ===== Gallery auto-slide =====
+const galleryImages = [
+  "gallery1.jpg",
+  "gallery2.jpg",
+  "gallery3.jpg",
+  "gallery4.jpg",
+  "gallery5.jpg",
+  "gallery6.PNG"
+];
+let current = 0;
+
+const dotsWrap = document.getElementById("galleryDots");
+if (dotsWrap) {
+  galleryImages.forEach((_, i) => {
+    const dot = document.createElement("span");
+    if (i === 0) dot.classList.add("active");
+    dotsWrap.appendChild(dot);
+  });
+}
+
+function updateGalleryDots(){
+  if (!dotsWrap) return;
+  [...dotsWrap.children].forEach((d, i) => {
+    d.classList.toggle("active", i === current);
+  });
+}
+
+function goToSlide(){
+  const img = document.getElementById("galleryImage");
+  if (!img) return;
+  img.style.opacity = "0";
+  setTimeout(() => {
+    img.src = galleryImages[current];
+    img.style.opacity = "1";
+    updateGalleryDots();
+  }, 350);
+}
+
+setInterval(() => {
+  current = (current + 1) % galleryImages.length;
+  goToSlide();
+}, 3500);
+
+// ===== Auto-scroll reviews =====
+const reviews = document.querySelector(".reviews-side");
+if (reviews) {
+  setInterval(() => {
+    reviews.scrollTop += 1;
+    if (reviews.scrollTop + reviews.clientHeight >= reviews.scrollHeight) {
+      reviews.scrollTop = 0;
+    }
+  }, 40);
+}
+
+// ===== Store open/closed status =====
+function updateStoreStatus() {
+  const now = new Date();
+  const hour = now.getHours();
+  const day = now.getDay(); // 4 = Thursday
+  const status = document.getElementById("store-status");
+  if (!status) return;
+
+  if (day === 4) {
+    status.innerHTML = "🔴 Closed Today (Thursday Off)";
+    status.style.color = "red";
+  } else if (hour >= 10 && hour < 21) {
+    status.innerHTML = "🟢 Store Open Now";
+    status.style.color = "green";
+  } else {
+    status.innerHTML = "🔴 Store Closed";
+    status.style.color = "red";
+  }
+}
+updateStoreStatus();
+
+// ===== Back to top button =====
+const backToTopBtn = document.getElementById("backToTop");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 400) {
+    backToTopBtn.classList.add("show");
+  } else {
+    backToTopBtn.classList.remove("show");
+  }
+});
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// ===== Festival auto-greeting =====
+function showFestiveGreeting() {
+  const banner = document.getElementById("festiveGreeting");
+  if (!banner) return;
+
+  const now = new Date();
+  const m = now.getMonth() + 1; // 1-12
+  const d = now.getDate();
+  let msg = "";
+
+  // Date ranges (approx — har saal thodi date aage-peeche hoti hai)
+  if (m === 1 && d <= 20) msg = "🎉 Happy New Year! Naye saal ki shubhkamnaayein";
+  else if (m === 1 && d >= 24) msg = "🇮🇳 Happy Republic Day";
+  else if (m === 3 && d >= 8 && d <= 20) msg = "🌈 Happy Holi!";
+  else if (m === 8 && d >= 5 && d <= 22) msg = "🪢 Happy Raksha Bandhan";
+  else if (m === 8 && d >= 23) msg = "🦚 Happy Janmashtami";
+  else if (m === 10 && d >= 1 && d <= 15) msg = "🙏 Happy Navratri";
+  else if (m === 10 && d >= 16 && d <= 25) msg = "🏹 Happy Dussehra";
+  else if ((m === 10 && d >= 28) || (m === 11 && d <= 5)) msg = "🪔 Happy Diwali! Festive Collection available";
+  else if (m === 11 && d >= 6 && d <= 16) msg = "✨ Happy Bhai Dooj & Chhath Puja";
+  else if (m === 12 && d >= 20) msg = "🎄 Season's Greetings!";
+
+  if (msg) {
+    banner.innerHTML = msg;
+    banner.style.display = "block";
+  }
+}
+showFestiveGreeting();
+
+// ===== Announcement Bar =====
+
+function updateAnnouncementBar(){
+
+    const bar = document.getElementById("announcementBar");
+
+    if(!bar) return;
+
+    const now = new Date();
+
+    const m = now.getMonth() + 1;
+
+    const d = now.getDate();
+
+    let message = "🟢 Latest Collection Available • Visit Our Shop or Contact on WhatsApp";
+
+    if(m===3 && d>=8 && d<=20){
+
+        message = "🌈 Happy Holi! New Holi Collection Available.";
+
+    }
+
+    else if(m===8 && d>=5 && d<=22){
+
+        message = "🎁 Raksha Bandhan Special Collection Available.";
+
+    }
+
+    else if((m===10 && d>=28) || (m===11 && d<=5)){
+
+        message = "🪔 Diwali Collection Available • Visit Our Shop.";
+
+    }
+
+    else if(m===12 && d>=20){
+
+        message = "🎄 Christmas & New Year Collection Available.";
+
+    }
+
+    bar.textContent = message;
+
+}
+
+updateAnnouncementBar();
+
+// ===== Scroll reveal + count-up =====
+
+const revealObserver = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.classList.add("visible");
+
+            revealObserver.unobserve(entry.target);
+
+        }
+
+    });
+
+}, { threshold: 0.15 });
+
+document.querySelectorAll(".reveal").forEach(el => {
+    revealObserver.observe(el);
+});
+
+
+
+// Count-up numbers
+function animateCount(el) {
+  const target = parseFloat(el.getAttribute("data-target"));
+  const suffix = el.getAttribute("data-suffix") || "";
+  const isDecimal = target % 1 !== 0;
+  const duration = 1500;
+  const startTime = performance.now();
+
+  function step(now) {
+    const progress = Math.min((now - startTime) / duration, 1);
+    const current = target * progress;
+    el.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    } else {
+      el.textContent = (isDecimal ? target.toFixed(1) : target) + suffix;
+    }
+  }
+  requestAnimationFrame(step);
+}
+
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCount(entry.target);
+      countObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll(".stat-number").forEach(el => countObserver.observe(el));
+
+
+// ===== Hero title puzzle/shuffle animation (fixed: per-line, centered) =====
+function buildLetters(el){
+  if(!el) return;
+  const text = el.getAttribute("data-text") || el.textContent;
+  el.setAttribute("data-text", text);
+  el.innerHTML = "";
+  [...text].forEach((ch,i)=>{
+    if(ch===" "){
+      const sp=document.createElement("span");
+      sp.className="space";
+      el.appendChild(sp);
+      return;
+    }
+    const span=document.createElement("span");
+    span.className="letter";
+    span.textContent=ch;
+    const dx=(Math.random()*70-35).toFixed(0)+"px";
+    const dy=(Math.random()*60-30).toFixed(0)+"px";
+    const rot=(Math.random()*70-35).toFixed(0)+"deg";
+    span.style.setProperty("--dx",dx);
+    span.style.setProperty("--dy",dy);
+    span.style.setProperty("--rot",rot);
+    span.style.animationDelay=(i*0.05)+"s";
+    el.appendChild(span);
+  });
+}
+
+function runHeroShuffle(){
+  buildLetters(document.getElementById("heroSmall"));
+  buildLetters(document.getElementById("heroBig"));
+}
+
+runHeroShuffle();
+setInterval(runHeroShuffle, 6000);
+
+const cursor = document.querySelector(".cursor-glow");
+
+// ===== Scroll progress bar =====
+const scrollProgressBar = document.getElementById("scrollProgress");
+function updateScrollProgress(){
+  if(!scrollProgressBar) return;
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  scrollProgressBar.style.width = pct + "%";
+}
+window.addEventListener("scroll", updateScrollProgress);
+updateScrollProgress();
+
+document.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+});
+
+
+const cards = document.querySelectorAll(".why-card");
+
+const observer = new IntersectionObserver((entries)=>{
+    if(entries[0].isIntersecting){
+
+        cards.forEach((card,index)=>{
+            setTimeout(()=>{
+                card.classList.add("show");
+            }, index * 250);   // 250ms ka gap
+        });
+
+        observer.disconnect(); // sirf ek baar chalega
+    }
+},{
+    threshold:0.35
+});
+
+observer.observe(document.querySelector(".why-choose-us"));
+
+const chatbotAnswers = {
+
+    purse: `
+        <p>⌨️ Typing...</p>
+    `,
+
+    cosmetics: `
+        <p>⌨️ Typing...</p>
+    `,
+
+    toys: `
+        <p>⌨️ Typing...</p>
+    `,
+
+    location: `
+        <p>⌨️ Typing...</p>
+    `,
+
+    timing: `
+        <p>⌨️ Typing...</p>
+    `,
+
+    contact: `
+        <p>⌨️ Typing...</p>
+    `
+
+};
+
+function showAnswer(type){
+
+    const chat=document.getElementById("chatContent");
+
+    chat.innerHTML="<p>⌨️ Typing...</p>";
+
+    setTimeout(function(){
+
+        let answer="";
+
+        switch(type){
+
+            case "purse":
+                answer=`
+                <p><b>👜 Purse Collection</b></p>
+
+                <p>
+                Bridal Purse<br>
+                Ladies Purse<br>
+                Sling Bag<br>
+                Wallet<br>
+                Party Purse
+                </p>
+                `;
+            break;
+
+            case "cosmetics":
+                answer=`
+                <p><b>💄 Cosmetics</b></p>
+
+                <p>
+                Makeup Items<br>
+                Beauty Products<br>
+                Daily Essentials
+                </p>
+                `;
+            break;
+
+            case "toys":
+                answer=`
+                <p><b>🧸 Toys</b></p>
+
+                <p>
+                Kids Toys<br>
+                Educational Toys<br>
+                Gift Toys
+                </p>
+                `;
+            break;
+
+            case "location":
+                answer=`
+                <p><b>📍 Shop Location</b></p>
+
+                <p>
+                Main Bazar<br>
+                Rishikesh
+                </p>
+                `;
+            break;
+
+            case "timing":
+                answer=`
+                <p><b>🕒 Store Timing</b></p>
+
+                <p>
+                10:00 AM - 9:00 PM
+                <br>
+                Weekly Off : Thursday
+                </p>
+                `;
+            break;
+
+            case "contact":
+                answer=`
+                <p><b>📞 Contact</b></p>
+
+                <p>
+                9528980787
+                </p>
+                `;
+            break;
+
+        }
+
+        chat.innerHTML=answer+`
+
+        <br>
+
+        <button onclick="showMenu()">⬅ Back</button>
+
+        `;
+
+    },1000);
+
+}
+
+function showMenu(){
+
+document.getElementById("chatContent").innerHTML=`
+
+<div class="chat-header">
+    🤖 Bhole AI
+    <span>🟢 Online</span>
+</div>
+
+<p>🙏 <b>Namaste!</b></p>
+
+<p>
+Welcome to <b>Bhole Sawariya Collection</b>.<br>
+Main aapki kis tarah madad kar sakta hoon?
+</p>
+
+<div class="chat-options">
+
+<button onclick="showAnswer('purse')">👜 Purse Collection</button>
+
+<button onclick="showAnswer('cosmetics')">💄 Cosmetics</button>
+
+<button onclick="showAnswer('toys')">🧸 Toys</button>
+
+<button onclick="showAnswer('location')">📍 Shop Location</button>
+
+<button onclick="showAnswer('timing')">🕒 Store Timing</button>
+
+<button onclick="showAnswer('contact')">📞 Contact</button>
+
+</div>
+
+`;
+
+}
+
+
+</script>
+
+</body>
+</html>
