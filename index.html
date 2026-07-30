@@ -2473,8 +2473,16 @@ footer p{
   #splash .splash-img-wrap{ width:90%; }
   #splash h1{ font-size:28px; }
   .butterfly{ font-size:35px; }
-  .logo{ flex-direction:column; text-align:center; }
-  .logo h2{ font-size:24px; }
+  header{ padding:12px 16px; gap:10px; }
+  .logo{ flex-direction:row; text-align:left; gap:10px; }
+  .logo img.logo-img{ width:52px; height:52px; border-radius:6px; }
+  .logo h2{ font-size:16px; letter-spacing:.3px; }
+  .tagline{ font-size:11px; margin-top:2px; }
+  #teddy{ display:none; }
+  .call-card{ padding:8px 14px; gap:8px; }
+  .phone-icon{ font-size:18px; }
+  .call-label{ font-size:10px; }
+  .phone-number{ font-size:13px; }
   .hero-title-glass{ gap:6px; }
   .small-line{ font-size:14px; letter-spacing:2px; }
   .big-line{ font-size:34px; }
@@ -2624,6 +2632,8 @@ transform:translateY(10px);
 }
 
 .rating-board{
+    position:relative;
+    overflow:hidden;
     text-align:center;
 }
 
@@ -2781,7 +2791,6 @@ margin:8px 15px 18px;
 
     padding:60px 60px 40px;
 
-    ...
 }
 
 .rating-board:hover{
@@ -3560,9 +3569,11 @@ img{
 
 <script>
 // ===== Splash screen hide =====
-window.addEventListener("load", () => {
+function runSplashSequence() {
   const splash = document.getElementById("splash");
   const txt = document.getElementById("loadingText");
+  if (!splash || splash.dataset.done) return;
+  splash.dataset.done = "1";
 
   // animate loading text 0 -> 100
   let pct = 0;
@@ -3573,8 +3584,6 @@ window.addEventListener("load", () => {
     if (pct >= 100) clearInterval(counter);
   }, 90);
 
-  if (!splash) return;
-
   setTimeout(() => {
     splash.style.opacity = "0";
     setTimeout(() => {
@@ -3582,7 +3591,18 @@ window.addEventListener("load", () => {
       document.body.classList.remove("splash-active");
     }, 1000);
   }, 2500);
-});
+}
+
+// Run as soon as the HTML/DOM is ready (does NOT wait for every
+// image/video/iframe to finish downloading, unlike window 'load').
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", runSplashSequence);
+} else {
+  runSplashSequence();
+}
+// Absolute safety net: if anything above somehow fails to fire,
+// force the splash away after 4s so the site is never stuck.
+setTimeout(runSplashSequence, 4000);
 
 // ===== Chatbot toggle =====
 function toggleChat() {
