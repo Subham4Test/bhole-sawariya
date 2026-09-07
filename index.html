@@ -452,6 +452,46 @@ align-items:center;
 
 justify-content:center;
 
+gap:14px;
+
+}
+
+/* ============ CART ICON ============ */
+.cart-icon-btn{
+  position:relative;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,215,0,.28);
+  backdrop-filter:blur(12px);
+  border-radius:50%;
+  width:48px;
+  height:48px;
+  font-size:20px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.3s;
+}
+.cart-icon-btn:hover{
+  transform:translateY(-3px);
+  background:rgba(255,255,255,.18);
+}
+.cart-count{
+  position:absolute;
+  top:-4px;
+  right:-4px;
+  background:#FFD700;
+  color:#3f124d;
+  font-size:11px;
+  font-weight:800;
+  min-width:18px;
+  height:18px;
+  border-radius:9px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 4px;
+  box-shadow:0 2px 8px rgba(0,0,0,.3);
 }
 
 /* Card */
@@ -1174,12 +1214,43 @@ display:flex;
 
 flex-direction:column;
 
+height:100%;
+
 transition:.45s ease;
 
 box-shadow:
 
 0 15px 40px rgba(0,0,0,.08);
 
+}
+
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  background:#f5eef2;
+}
+.card .card-actions{
+  margin-top:14px;
+}
+.card-img-fallback{
+  width:100%;
+  height:220px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:6px;
+  background:linear-gradient(135deg,#F8F2E8,#EFE1E9);
+  color:#B76E79;
+}
+.card-img-fallback span{
+  font-size:40px;
+}
+.card-img-fallback p{
+  font-size:12px;
+  font-weight:600;
+  color:#8A406D;
 }
 
 .rating{
@@ -1314,6 +1385,68 @@ transition:.7s;
 
 left:150%;
 
+}
+
+/* ============ PRICE TAG + ADD TO CART ============ */
+.price-tag{
+  text-align:center;
+  font-size:22px;
+  font-weight:800;
+  color:#5D2E5F;
+  margin-top:auto;
+  padding-top:10px;
+  font-family:'Cinzel',serif;
+}
+.card-actions{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin:14px 18px 20px;
+}
+.card-actions .order-btn{
+  margin:0;
+}
+.add-cart-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px;
+  background:linear-gradient(135deg,#5D2E5F,#8A406D);
+  color:#fff;
+  border:1px solid rgba(255,215,0,.35);
+  border-radius:50px;
+  font-weight:600;
+  font-size:15px;
+  cursor:pointer;
+  transition:.35s;
+}
+.add-cart-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 22px rgba(93,46,95,.35);
+}
+.add-cart-btn.added{
+  background:linear-gradient(135deg,#25D366,#1da851);
+}
+.view-options-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px;
+  background:transparent;
+  color:#B76E79;
+  border:2px solid #D4AF37;
+  border-radius:50px;
+  font-weight:700;
+  font-size:15px;
+  cursor:pointer;
+  transition:.35s;
+}
+.view-options-btn:hover{
+  background:#D4AF37;
+  color:#3f124d;
+  transform:translateY(-3px);
 }
 
 
@@ -2736,6 +2869,436 @@ margin:8px 15px 18px;
 
 
 /* ============ BACK TO TOP ============ */
+/* ============ CART DRAWER ============ */
+/* ============ VARIANT SELECTION MODAL ============ */
+.category-card{
+  cursor:pointer;
+}
+.variant-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:99992;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .3s ease,visibility .3s;
+}
+.variant-overlay.show{
+  opacity:1;
+  visibility:visible;
+}
+.variant-modal{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-46%) scale(.95);
+  width:560px;
+  max-width:94vw;
+  max-height:88vh;
+  background:#fff;
+  border-radius:24px;
+  z-index:99993;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .35s ease,transform .35s ease,visibility .35s;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
+}
+.variant-modal.show{
+  opacity:1;
+  visibility:visible;
+  transform:translate(-50%,-50%) scale(1);
+}
+.variant-modal-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 24px;
+  background:linear-gradient(135deg,#3f124d,#5d2e5f,#8a406d);
+  color:#fff;
+}
+.variant-modal-header h3{
+  font-family:'Cinzel',serif;
+  font-size:20px;
+}
+.variant-modal-items{
+  padding:20px 24px;
+  overflow-y:auto;
+}
+.variant-item{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding:18px 0;
+  border-bottom:1px solid #f0e6ea;
+  position:relative;
+}
+.variant-item:last-child{
+  border-bottom:none;
+}
+.variant-item img,
+.variant-item .card-img-fallback{
+  width:120px;
+  height:120px;
+  object-fit:cover;
+  border-radius:16px;
+  border:2px solid #E5C7D8;
+  flex-shrink:0;
+  transition:transform .3s ease,box-shadow .3s ease;
+  cursor:zoom-in;
+}
+.variant-item img:hover,
+.variant-item .card-img-fallback:hover{
+  transform:scale(1.35);
+  box-shadow:0 12px 30px rgba(0,0,0,.3);
+  position:relative;
+  z-index:5;
+}
+.variant-item-info{
+  flex:1;
+  min-width:0;
+}
+.variant-item-name{
+  font-weight:700;
+  color:#5D2E5F;
+  font-size:17px;
+  line-height:1.3;
+}
+.variant-item-price{
+  color:#B76E79;
+  font-weight:800;
+  font-size:20px;
+  margin-top:6px;
+}
+.variant-add-btn{
+  padding:12px 20px;
+  font-size:14px;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
+.cart-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  z-index:99990;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .35s ease,visibility .35s;
+}
+.cart-overlay.show{
+  opacity:1;
+  visibility:visible;
+}
+.cart-drawer{
+  position:fixed;
+  top:0;
+  right:0;
+  height:100%;
+  width:100%;
+  max-width:100%;
+  background:#fff;
+  z-index:99991;
+  display:flex;
+  flex-direction:column;
+  transform:translateX(100%);
+  transition:transform .4s cubic-bezier(.22,1,.36,1);
+  box-shadow:-15px 0 40px rgba(0,0,0,.25);
+}
+.cart-drawer.show{
+  transform:translateX(0);
+}
+.cart-scroll-body{
+  flex:1;
+  overflow-y:auto;
+  max-width:640px;
+  width:100%;
+  margin:0 auto;
+}
+.checkout-section{
+  padding:24px 24px 28px;
+  border-bottom:10px solid #FAF6F8;
+}
+.checkout-step-label{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1.6px;
+  color:#B76E79;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+.order-summary-box{
+  background:linear-gradient(135deg,#3f124d,#5d2e5f,#8a406d);
+  border-bottom:none;
+}
+.order-summary-box .checkout-step-label{
+  color:#FFD700;
+}
+.cart-subtotal-big{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.cart-subtotal-big span:first-child{
+  color:#F5D7A1;
+  font-size:16px;
+  font-weight:600;
+}
+.cart-subtotal-big span:last-child{
+  color:#FFD700;
+  font-size:44px;
+  font-weight:900;
+  font-family:'Cinzel',serif;
+  text-shadow:0 4px 15px rgba(0,0,0,.25);
+}
+.cart-drawer-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px;
+  background:linear-gradient(135deg,#3f124d,#5d2e5f,#8a406d);
+  color:#fff;
+}
+.cart-drawer-header h3{
+  font-family:'Cinzel',serif;
+  font-size:20px;
+}
+.cart-close-btn{
+  background:rgba(255,255,255,.15);
+  border:none;
+  color:#fff;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  font-size:16px;
+  cursor:pointer;
+}
+.cart-items{
+  padding-top:4px;
+}
+.cart-empty{
+  text-align:center;
+  color:#888;
+  margin-top:40px;
+  font-size:15px;
+}
+.order-confirmed{
+  text-align:center;
+  padding:70px 24px;
+}
+.order-confirmed-icon-wrap{
+  position:relative;
+  width:130px;
+  height:130px;
+  margin:0 auto 28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.order-confirmed-ring{
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  border:3px solid #25D366;
+  animation:orderRingPulse 1.8s ease-out infinite;
+}
+.order-confirmed-ring.ring2{
+  animation-delay:.6s;
+}
+.order-confirmed-icon{
+  font-size:80px;
+  animation:orderCheckPop .7s cubic-bezier(.34,1.56,.64,1) forwards;
+  position:relative;
+  z-index:2;
+}
+@keyframes orderCheckPop{
+  0%{ transform:scale(0) rotate(-30deg); opacity:0; }
+  60%{ transform:scale(1.3) rotate(8deg); opacity:1; }
+  100%{ transform:scale(1) rotate(0deg); }
+}
+@keyframes orderRingPulse{
+  0%{ transform:scale(.75); opacity:.9; }
+  100%{ transform:scale(1.9); opacity:0; }
+}
+.order-confirmed h4{
+  color:#5D2E5F;
+  font-family:'Cinzel',serif;
+  font-size:30px;
+  margin-bottom:14px;
+  animation:orderTextRise .6s ease-out .2s both;
+}
+.order-confirmed p{
+  color:#777;
+  font-size:16px;
+  line-height:1.7;
+  margin-bottom:26px;
+  max-width:380px;
+  margin-left:auto;
+  margin-right:auto;
+  animation:orderTextRise .6s ease-out .35s both;
+}
+@keyframes orderTextRise{
+  0%{ opacity:0; transform:translateY(14px); }
+  100%{ opacity:1; transform:translateY(0); }
+}
+.order-confirmed .add-cart-btn{
+  display:inline-flex;
+  padding:14px 32px;
+  font-size:16px;
+}
+.cart-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid #f0e6ea;
+}
+.cart-item-info{
+  flex:1;
+}
+.cart-item-name{
+  font-weight:600;
+  color:#5D2E5F;
+  font-size:15px;
+}
+.cart-item-price{
+  color:#888;
+  font-size:13px;
+  margin-top:2px;
+}
+.cart-qty{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.cart-qty button{
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  border:1px solid #E5C7D8;
+  background:#fff;
+  color:#5D2E5F;
+  font-weight:700;
+  cursor:pointer;
+}
+.cart-item-remove{
+  background:none;
+  border:none;
+  color:#ff4d6d;
+  font-size:18px;
+  cursor:pointer;
+  padding:0 4px;
+}
+.cart-footer{
+}
+.cart-subtotal{
+  display:flex;
+  justify-content:space-between;
+  font-size:18px;
+  font-weight:800;
+  color:#5D2E5F;
+  margin-bottom:14px;
+}
+
+/* ============ DELIVERY FORM ============ */
+.delivery-form{
+  margin-bottom:16px;
+  padding:14px;
+  background:#FAF6F8;
+  border-radius:14px;
+  border:1px solid #E5C7D8;
+}
+.delivery-form-title{
+  font-weight:700;
+  color:#5D2E5F;
+  font-size:14px;
+  margin-bottom:10px;
+}
+.delivery-input{
+  width:100%;
+  padding:10px 12px;
+  margin-bottom:8px;
+  border:1px solid #E5C7D8;
+  border-radius:10px;
+  font-family:'Poppins',sans-serif;
+  font-size:14px;
+  color:#333;
+}
+.delivery-input:focus{
+  outline:none;
+  border-color:#B76E79;
+}
+.delivery-textarea{
+  resize:vertical;
+  min-height:60px;
+}
+.delivery-error{
+  color:#ff4d6d;
+  font-size:12px;
+  margin-top:4px;
+  margin-bottom:0;
+}
+
+.cart-pay-btn{
+  width:100%;
+  padding:14px;
+  background:linear-gradient(135deg,#D4AF37,#B8860B);
+  color:#3f124d;
+  border:none;
+  border-radius:50px;
+  font-weight:700;
+  font-size:15px;
+  cursor:pointer;
+  margin-bottom:10px;
+  transition:.3s;
+}
+.cart-pay-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 22px rgba(212,175,55,.4);
+}
+.cart-whatsapp-btn{
+  width:100%;
+  padding:14px;
+  background:linear-gradient(135deg,#25D366,#1da851);
+  color:#fff;
+  border:none;
+  border-radius:50px;
+  font-weight:700;
+  font-size:15px;
+  cursor:pointer;
+  margin-bottom:10px;
+}
+.cart-note{
+  font-size:12px;
+  color:#999;
+  text-align:center;
+  line-height:1.5;
+}
+.cart-qr{
+  text-align:center;
+  margin-bottom:12px;
+}
+.cart-qr img{
+  width:160px;
+  height:160px;
+  border-radius:12px;
+  border:2px solid #E5C7D8;
+}
+.shop-notified-banner{
+  background:linear-gradient(135deg,#25D366,#1da851);
+  color:#fff;
+  font-size:13px;
+  font-weight:600;
+  padding:12px 16px;
+  border-radius:14px;
+  margin-bottom:14px;
+  animation:orderTextRise .4s ease-out;
+}
+
 #backToTop{
   position:fixed;
   left:20px;
@@ -3162,6 +3725,11 @@ img{
     <video src="teddy.mp4" id="teddy" autoplay loop muted playsinline></video>
   </div><div class="header-contact">
 
+    <button class="cart-icon-btn" onclick="toggleCart()" aria-label="View cart">
+      🛒
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+
     <a href="tel:+919528980787" class="call-card">
 
         <div class="phone-icon">
@@ -3252,7 +3820,7 @@ img{
 
 <section class="products" id="products">
 
- <div class="card">
+ <div class="card category-card" onclick="openVariantModal('earings')">
 
   <span class="badge">NEW</span>
 
@@ -3271,65 +3839,102 @@ img{
   Premium Collection
 
   </p>
-  <a class="order-btn" target="_blank"
-  href="https://wa.me/919528980787?text=Hi%2C%20I%20am%20interested%20in%20your%20Earrings.">
-  Order on WhatsApp
-  </a>
+  <p class="price-tag">Starting from ₹50</p>
+  <div class="card-actions">
+    <button class="view-options-btn">👀 View Options</button>
+  </div>
 
 </div>
 
-  <div class="card">
+  <div class="card category-card" onclick="openVariantModal('clutcher')">
     <img src="CLATURE.jpg" alt="Cluture">
     <h3>Clutcher</h3>
-    <a class="order-btn" target="_blank" href="https://wa.me/919528980787?text=Hi%2C%20I%20am%20interested%20in%20your%20Clutcher.">Order on WhatsApp</a>
+    <p class="price-tag">Best in your Budget</p>
+    <div class="card-actions">
+      <button class="view-options-btn">👀 View Options</button>
+    </div>
   </div>
 
-  <div class="card">
+  <div class="card category-card" onclick="openVariantModal('lipstick')">
     <span class="badge trending">TRENDING</span>
     <img src="lips.png" alt="Lipstick">
     <h3>Lipstick</h3>
-    <a class="order-btn" target="_blank" href="https://wa.me/919528980787?text=Hi%2C%20I%20am%20interested%20in%20your%20Lipstick.">Order on WhatsApp</a>
+    <p class="mini-text">3 Shades Available</p>
+    <p class="price-tag">Best in ₹100</p>
+    <div class="card-actions">
+      <button class="view-options-btn">👀 View Options</button>
+    </div>
   </div>
 
-  <div class="card">
+  <div class="card category-card" onclick="openVariantModal('nail-paint')">
     <img src="nail paint.png" alt="Nail Paint">
     <h3>Nail Paint</h3>
-    <a class="order-btn" target="_blank" href="https://wa.me/919528980787?text=Hi%2C%20I%20am%20interested%20in%20your%20Nail%20Paint.">Order on WhatsApp</a>
+    <p class="price-tag">₹99</p>
+    <div class="card-actions">
+      <button class="view-options-btn">👀 View Options</button>
+    </div>
   </div>
 
-  <div class="card">
+  <div class="card category-card" onclick="openVariantModal('mens-wallet')">
     <img src="men wellet.png" alt="Men's Wallet">
     <h3>Men's Wallet</h3>
-    <a class="order-btn" target="_blank" href="https://wa.me/919528980787?text=Hi%2C%20I%20am%20interested%20in%20your%20Men%27s%20Wallet.">Order on WhatsApp</a>
+    <p class="price-tag">Best in ₹100</p>
+    <div class="card-actions">
+      <button class="view-options-btn">👀 View Options</button>
+    </div>
   </div>
 
 
-  <div class="card">
+  <div class="card category-card" onclick="openVariantModal('purse')">
    <span class="badge bestseller">BEST SELLER</span>
     <img src="purse l.png" alt="Ladies Purse">
     <h3>Ladies Purse</h3>
-    <a class="order-btn" target="_blank" href="https://wa.me/919528980787?text=Hi%2C%20I%20am%20interested%20in%20your%20Ladies%20Purse.">Order on WhatsApp</a>
+    <p class="mini-text">3 Styles Available</p>
+    <p class="price-tag">Starting from ₹100</p>
+    <div class="card-actions">
+      <button class="view-options-btn">👀 View Options</button>
+    </div>
   </div>
 
-  <div class="card">
+  <div class="card category-card" onclick="openVariantModal('umbrella')">
     <img src="umb.png" alt="Umbrella">
     <h3>Umbrella</h3>
-    <a class="order-btn" target="_blank" href="https://wa.me/919528980787?text=Hi%2C%20I%20am%20interested%20in%20your%20Umbrella.">Order on WhatsApp</a>
+    <p class="price-tag">Best in your Budget</p>
+    <div class="card-actions">
+      <button class="view-options-btn">👀 View Options</button>
+    </div>
   </div>
 
-  <div class="card">
+  <div class="card category-card" onclick="openVariantModal('gift-collection')">
     <span class="badge popular">POPULAR</span>
     <img src="m c.png" alt="Gift Collection">
     <h3>Gift Collection</h3>
-    <a class="order-btn" target="_blank" href="https://wa.me/919528980787?text=Hi%2C%20I%20am%20interested%20in%20your%20Gift%20Collection.">Order on WhatsApp</a>
+    <p class="price-tag">Best in your Budget</p>
+    <div class="card-actions">
+      <button class="view-options-btn">👀 View Options</button>
+    </div>
   </div>
 
-  <div class="card">
+  <div class="card category-card" onclick="openVariantModal('toys')">
     <span class="badge trending">KIDS FAVOURITE</span>
     <img src="ted.png" alt="kids toys">
     <h3>Toys</h3>
-    <a class="order-btn" target="_blank" href="https://wa.me/919528980787?text=Hi%2C%20I%20am%20interested%20in%20your%20Umbrella.">Order on WhatsApp</a>
+    <p class="price-tag">Best in your Budget</p>
+    <div class="card-actions">
+      <button class="view-options-btn">👀 View Options</button>
+    </div>
    </div>
+
+  <div class="card category-card" onclick="openVariantModal('mangalsutra')">
+    <span class="badge">NEW</span>
+    <img src="mangalsutra.png" alt="Mangalsutra">
+    <h3>Mangalsutra</h3>
+    <p class="mini-text">3 Designs Available</p>
+    <p class="price-tag">Starting from ₹100</p>
+    <div class="card-actions">
+      <button class="view-options-btn">👀 View Options</button>
+    </div>
+  </div>
 
 </section>
 
@@ -3500,6 +4105,65 @@ img{
   </div>
 </section>
 
+<!-- ============ CART DRAWER ============ -->
+<!-- ============ VARIANT SELECTION MODAL ============ -->
+<div class="variant-overlay" id="variantOverlay" onclick="closeVariantModal()"></div>
+<div class="variant-modal" id="variantModal">
+  <div class="variant-modal-header">
+    <h3 id="variantModalTitle">Choose an Option</h3>
+    <button class="cart-close-btn" onclick="closeVariantModal()" aria-label="Close">✕</button>
+  </div>
+  <div class="variant-modal-items" id="variantModalItems"></div>
+</div>
+
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header">
+    <h3>🛒 Your Cart</h3>
+    <button class="cart-close-btn" onclick="toggleCart()" aria-label="Close cart">✕</button>
+  </div>
+
+  <div class="cart-scroll-body">
+
+    <div class="checkout-section">
+      <p class="checkout-step-label">STEP 1 — Your Items</p>
+      <div class="cart-items" id="cartItems">
+        <p class="cart-empty" id="cartEmptyMsg">Your cart is empty. Add some products! 🛍️</p>
+      </div>
+    </div>
+
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+
+      <div class="checkout-section">
+        <p class="checkout-step-label">STEP 2 — Delivery Details</p>
+        <div class="delivery-form">
+          <input type="text" id="custName" class="delivery-input" placeholder="Your Full Name" required>
+          <input type="tel" id="custPhone" class="delivery-input" placeholder="Phone Number" maxlength="10" required>
+          <textarea id="custAddress" class="delivery-input delivery-textarea" placeholder="Full Delivery Address (House no, Street, Area, City, Pincode)" required></textarea>
+          <p class="delivery-error" id="deliveryError" style="display:none;">⚠️ Please fill Name, Phone and Address before checkout.</p>
+        </div>
+      </div>
+
+      <div class="checkout-section order-summary-box">
+        <p class="checkout-step-label">STEP 3 — Total Payable</p>
+        <div class="cart-subtotal-big">
+          <span>Grand Total</span>
+          <span id="cartSubtotal">₹0</span>
+        </div>
+      </div>
+
+      <div class="checkout-section">
+        <div id="cartQR" class="cart-qr" style="display:none;"></div>
+        <button class="cart-pay-btn" onclick="payViaUPI()">💳 Pay via UPI</button>
+        <button class="cart-whatsapp-btn" onclick="sendCartOnWhatsApp()">📲 Confirm Order on WhatsApp</button>
+        <p class="cart-note">Payment ke baad screenshot WhatsApp pe zaroor bhejein, order confirm karne ke liye.</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
 <!-- ============ CHATBOT ============ -->
 
 <div class="chatbot">
@@ -3603,6 +4267,348 @@ if (document.readyState === "loading") {
 // Absolute safety net: if anything above somehow fails to fire,
 // force the splash away after 4s so the site is never stuck.
 setTimeout(runSplashSequence, 4000);
+
+// ===== SHOP SETTINGS (edit these) =====
+// 🔴 IMPORTANT: Replace with your real UPI ID before going live!
+const SHOP_UPI_ID = "lalitapaswan93@okaxis";
+const SHOP_UPI_NAME = "Bhole Sawariya";
+const SHOP_WHATSAPP_NUMBER = "919528980787";
+
+// ===== Cart =====
+let cart = JSON.parse(localStorage.getItem("bhole_cart") || "[]");
+
+function saveCart() {
+  localStorage.setItem("bhole_cart", JSON.stringify(cart));
+  renderCart();
+}
+
+function addToCart(btn) {
+  const card = btn.closest(".card");
+  const id = card.dataset.id;
+  const name = card.dataset.name;
+  const price = parseFloat(card.dataset.price);
+
+  const existing = cart.find(item => item.id === id);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ id, name, price, qty: 1 });
+  }
+  saveCart();
+
+  btn.classList.add("added");
+  const originalText = btn.innerHTML;
+  btn.innerHTML = "✅ Added!";
+  setTimeout(() => {
+    btn.classList.remove("added");
+    btn.innerHTML = originalText;
+  }, 1200);
+}
+
+// ===== Product variants (Lipstick / Purse / Mangalsutra) =====
+const PRODUCT_VARIANTS = {
+  lipstick: {
+    title: "Lipstick — Choose Your Shade",
+    items: [
+      { id: "lipstick-berry", name: "Lipstick - Berry Pink", price: 90, img: "lips 2.jpg" },
+      { id: "lipstick-nude", name: "Lipstick - Nude Rose (Kiss Pretty)", price: 110, img: "lips 3.png" },
+      { id: "lipstick-chocolate", name: "Lipstick - Chocolate Matte", price: 110, img: "lips 4.png" }
+    ]
+  },
+  purse: {
+    title: "Ladies Purse — Choose Your Style",
+    items: [
+      { id: "purse-black", name: "Purse - Black Sling", price: 400, img: "purse 1.jpg" },
+      { id: "purse-red", name: "Purse - Red Embroidered", price: 400, img: "purse 2.jpg" },
+      { id: "purse-pink", name: "Purse - Pink Chain", price: 500, img: "purse 3.jpg" }
+    ]
+  },
+  mangalsutra: {
+    title: "Mangalsutra — Choose Your Design",
+    items: [
+      { id: "mangalsutra-1", name: "Mangalsutra - Design 1", price: 100, img: "mangalsutra 1.jpg" },
+      { id: "mangalsutra-2", name: "Mangalsutra - Design 2", price: 100, img: "mangalsutra 2.jpg" },
+      { id: "mangalsutra-3", name: "Mangalsutra - Design 3", price: 100, img: "mangalsutra 3.jpg" }
+    ]
+  },
+  earings: {
+    title: "Earings",
+    items: [
+      { id: "earings", name: "Earings", price: 50, img: "ear.png" }
+    ]
+  },
+  clutcher: {
+    title: "Clutcher",
+    items: [
+      { id: "clutcher", name: "Clutcher", price: 499, img: "CLATURE.jpg" }
+    ]
+  },
+  "nail-paint": {
+    title: "Nail Paint",
+    items: [
+      { id: "nail-paint", name: "Nail Paint", price: 99, img: "nail paint.png" }
+    ]
+  },
+  "mens-wallet": {
+    title: "Men's Wallet",
+    items: [
+      { id: "mens-wallet", name: "Men's Wallet", price: 100, img: "men wellet.png" }
+    ]
+  },
+  "gift-collection": {
+    title: "Gift Collection",
+    items: [
+      { id: "gift-collection", name: "Gift Collection", price: 349, img: "m c.png" }
+    ]
+  },
+  toys: {
+    title: "Toys",
+    items: [
+      { id: "toys", name: "Toys", price: 149, img: "ted.png" }
+    ]
+  },
+  umbrella: {
+    title: "Umbrella",
+    items: [
+      { id: "umbrella", name: "Umbrella", price: 249, img: "umb.png" }
+    ]
+  }
+};
+
+function openVariantModal(category) {
+  const data = PRODUCT_VARIANTS[category];
+  if (!data) return;
+
+  document.getElementById("variantModalTitle").textContent = data.title;
+  document.getElementById("variantModalItems").innerHTML = data.items.map(item => `
+    <div class="variant-item">
+      <img src="${item.img}" alt="${item.name}">
+      <div class="variant-item-info">
+        <div class="variant-item-name">${item.name}</div>
+        <div class="variant-item-price">₹${item.price}</div>
+      </div>
+      <button class="add-cart-btn variant-add-btn" onclick="addVariantToCart('${item.id}', this)">🛒 Add</button>
+    </div>
+  `).join("");
+  handleBrokenImages();
+
+  document.getElementById("variantOverlay").classList.add("show");
+  document.getElementById("variantModal").classList.add("show");
+}
+
+function closeVariantModal() {
+  document.getElementById("variantOverlay").classList.remove("show");
+  document.getElementById("variantModal").classList.remove("show");
+}
+
+function addVariantToCart(id, btn) {
+  let variantData = null;
+  for (const key in PRODUCT_VARIANTS) {
+    const found = PRODUCT_VARIANTS[key].items.find(i => i.id === id);
+    if (found) { variantData = found; break; }
+  }
+  if (!variantData) return;
+
+  const existing = cart.find(item => item.id === id);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ id: variantData.id, name: variantData.name, price: variantData.price, qty: 1 });
+  }
+  saveCart();
+
+  btn.classList.add("added");
+  const originalText = btn.innerHTML;
+  btn.innerHTML = "✅ Added!";
+  setTimeout(() => {
+    btn.classList.remove("added");
+    btn.innerHTML = originalText;
+  }, 1200);
+}
+
+function changeQty(id, delta) {
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) {
+    cart = cart.filter(i => i.id !== id);
+  }
+  saveCart();
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(i => i.id !== id);
+  saveCart();
+}
+
+function getSubtotal() {
+  return cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+}
+
+function renderCart() {
+  const itemsWrap = document.getElementById("cartItems");
+  const emptyMsg = document.getElementById("cartEmptyMsg");
+  const footer = document.getElementById("cartFooter");
+  const countBadge = document.getElementById("cartCount");
+  if (!itemsWrap) return;
+
+  const totalQty = cart.reduce((s, i) => s + i.qty, 0);
+  if (countBadge) countBadge.textContent = totalQty;
+
+  if (cart.length === 0) {
+    itemsWrap.innerHTML = '<p class="cart-empty" id="cartEmptyMsg">Your cart is empty. Add some products! 🛍️</p>';
+    footer.style.display = "none";
+    return;
+  }
+
+  footer.style.display = "block";
+  itemsWrap.innerHTML = cart.map(item => `
+    <div class="cart-item">
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-price">₹${item.price} x ${item.qty} = ₹${item.price * item.qty}</div>
+      </div>
+      <div class="cart-qty">
+        <button onclick="changeQty('${item.id}', -1)">−</button>
+        <span>${item.qty}</span>
+        <button onclick="changeQty('${item.id}', 1)">+</button>
+      </div>
+      <button class="cart-item-remove" onclick="removeFromCart('${item.id}')">✕</button>
+    </div>
+  `).join("");
+
+  document.getElementById("cartSubtotal").textContent = "₹" + getSubtotal();
+  document.getElementById("cartQR").style.display = "none";
+}
+
+function toggleCart() {
+  const drawer = document.getElementById("cartDrawer");
+  const overlay = document.getElementById("cartOverlay");
+  drawer.classList.toggle("show");
+  overlay.classList.toggle("show");
+}
+
+// ===== Delivery details (name, phone, address) =====
+function loadDeliveryDetails() {
+  const saved = JSON.parse(localStorage.getItem("bhole_delivery") || "{}");
+  if (saved.name) document.getElementById("custName").value = saved.name;
+  if (saved.phone) document.getElementById("custPhone").value = saved.phone;
+  if (saved.address) document.getElementById("custAddress").value = saved.address;
+}
+
+function getDeliveryDetails() {
+  const name = document.getElementById("custName").value.trim();
+  const phone = document.getElementById("custPhone").value.trim();
+  const address = document.getElementById("custAddress").value.trim();
+  return { name, phone, address };
+}
+
+function validateDeliveryDetails() {
+  const { name, phone, address } = getDeliveryDetails();
+  const errorMsg = document.getElementById("deliveryError");
+  if (!name || !phone || phone.length < 10 || !address) {
+    errorMsg.style.display = "block";
+    return false;
+  }
+  errorMsg.style.display = "none";
+  localStorage.setItem("bhole_delivery", JSON.stringify({ name, phone, address }));
+  return true;
+}
+
+let orderNotificationSent = false;
+
+function buildOrderMessage() {
+  const { name, phone, address } = getDeliveryDetails();
+  let msg = "Hi, I want to order:%0A";
+  cart.forEach(item => {
+    msg += `- ${item.name} x${item.qty} = ₹${item.price * item.qty}%0A`;
+  });
+  msg += `%0ATotal: ₹${getSubtotal()}`;
+  msg += `%0A%0A📦 Delivery Details:%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AAddress: ${encodeURIComponent(address)}`;
+  return msg;
+}
+
+// Sends the order + delivery details to the SHOP OWNER's WhatsApp.
+// Called automatically no matter which checkout button the customer uses,
+// so the shop is always notified — even if the customer pays via UPI only.
+function notifyShopOwner() {
+  if (orderNotificationSent) return;
+  const msg = buildOrderMessage();
+  window.open(`https://wa.me/${SHOP_WHATSAPP_NUMBER}?text=${msg}`, "_blank");
+  orderNotificationSent = true;
+}
+
+function payViaUPI() {
+  const amount = getSubtotal();
+  if (amount <= 0) return;
+  if (!validateDeliveryDetails()) return;
+
+  // Notify the shop owner right away — this now always happens,
+  // regardless of whether the customer ever taps the WhatsApp button.
+  notifyShopOwner();
+
+  const note = "Order-" + cart.map(i => i.name).join(",").slice(0, 40);
+  const upiLink = `upi://pay?pa=${encodeURIComponent(SHOP_UPI_ID)}&pn=${encodeURIComponent(SHOP_UPI_NAME)}&am=${amount}&cu=INR&tn=${encodeURIComponent(note)}`;
+
+  // Try opening UPI app directly (works on mobile)
+  window.location.href = upiLink;
+
+  // Also show QR code (helps on desktop, or as a fallback)
+  const qrWrap = document.getElementById("cartQR");
+  const qrImg = "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=" + encodeURIComponent(upiLink);
+  qrWrap.innerHTML = `<div class="shop-notified-banner">✅ Aapka order details shop owner ko WhatsApp par bhej diye gaye hain.</div><img src="${qrImg}" alt="Scan to pay via UPI"><p style="font-size:12px;color:#999;margin-top:6px;">Scan this QR with any UPI app to pay ₹${amount}</p>`;
+  qrWrap.style.display = "block";
+}
+
+function sendCartOnWhatsApp() {
+  if (cart.length === 0) return;
+  if (!validateDeliveryDetails()) return;
+  notifyShopOwner();
+  showOrderConfirmation();
+}
+
+function showOrderConfirmation() {
+  const itemsWrap = document.getElementById("cartItems");
+  const footer = document.getElementById("cartFooter");
+  itemsWrap.innerHTML = `
+    <div class="order-confirmed">
+      <div class="order-confirmed-icon-wrap">
+        <div class="order-confirmed-ring"></div>
+        <div class="order-confirmed-ring ring2"></div>
+        <div class="order-confirmed-icon">✅</div>
+      </div>
+      <h4>Order Sent!</h4>
+      <p>Aapka order WhatsApp par bhej diya gaya hai. Shop owner jald hi confirm karenge.</p>
+      <button class="add-cart-btn" onclick="clearCartAfterOrder()">Continue Shopping</button>
+    </div>
+  `;
+  footer.style.display = "none";
+}
+
+function clearCartAfterOrder() {
+  cart = [];
+  orderNotificationSent = false;
+  saveCart();
+  toggleCart();
+}
+
+loadDeliveryDetails();
+renderCart();
+
+// ===== Graceful fallback for missing product photos =====
+function handleBrokenImages() {
+  document.querySelectorAll(".card img, .variant-item img").forEach(img => {
+    img.addEventListener("error", function () {
+      const fallback = document.createElement("div");
+      fallback.className = "card-img-fallback";
+      fallback.innerHTML = "<span>🖼️</span><p>Photo coming soon</p>";
+      if (this.parentNode) this.replaceWith(fallback);
+    });
+  });
+}
+handleBrokenImages();
+
+
 
 // ===== Chatbot toggle =====
 function toggleChat() {
