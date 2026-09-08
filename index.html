@@ -3243,22 +3243,35 @@ margin:8px 15px 18px;
   margin-bottom:0;
 }
 
-.cart-pay-btn{
-  width:100%;
-  padding:14px;
-  background:linear-gradient(135deg,#D4AF37,#B8860B);
-  color:#3f124d;
-  border:none;
-  border-radius:50px;
+.upi-app-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:16px;
+}
+.upi-app-btn{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  padding:16px 8px;
+  background:#fff;
+  border:2px solid #E5C7D8;
+  border-radius:16px;
   font-weight:700;
-  font-size:15px;
+  font-size:13px;
+  color:#5D2E5F;
   cursor:pointer;
-  margin-bottom:10px;
   transition:.3s;
 }
-.cart-pay-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 10px 22px rgba(212,175,55,.4);
+.upi-app-icon{
+  font-size:26px;
+}
+.upi-app-btn:hover{
+  border-color:#D4AF37;
+  transform:translateY(-3px);
+  box-shadow:0 10px 20px rgba(212,175,55,.25);
 }
 .cart-whatsapp-btn{
   width:100%;
@@ -4153,10 +4166,24 @@ img{
       </div>
 
       <div class="checkout-section">
+        <p class="checkout-step-label">STEP 4 — Choose Payment App</p>
+        <div class="upi-app-grid">
+          <button class="upi-app-btn" onclick="payWithApp('gpay')">
+            <span class="upi-app-icon">🟢</span> Google Pay
+          </button>
+          <button class="upi-app-btn" onclick="payWithApp('phonepe')">
+            <span class="upi-app-icon">🟣</span> PhonePe
+          </button>
+          <button class="upi-app-btn" onclick="payWithApp('paytm')">
+            <span class="upi-app-icon">🔵</span> Paytm
+          </button>
+          <button class="upi-app-btn" onclick="payWithApp('other')">
+            <span class="upi-app-icon">💳</span> Other UPI App
+          </button>
+        </div>
         <div id="cartQR" class="cart-qr" style="display:none;"></div>
-        <button class="cart-pay-btn" onclick="payViaUPI()">💳 Pay via UPI</button>
         <button class="cart-whatsapp-btn" onclick="sendCartOnWhatsApp()">📲 Confirm Order on WhatsApp</button>
-        <p class="cart-note">Payment ke baad screenshot WhatsApp pe zaroor bhejein, order confirm karne ke liye.</p>
+        <p class="cart-note">Payment app khulte hi order details automatically shop ko WhatsApp par bhej di jaayengi.</p>
       </div>
 
     </div>
@@ -4538,38 +4565,45 @@ function notifyShopOwner() {
   orderNotificationSent = true;
 }
 
-function payViaUPI() {
+// Each major UPI app has its OWN deep-link scheme. The generic "upi://pay"
+// link is meant to work everywhere via Android's intent chooser, but in
+// practice some apps (Paytm especially) don't parse it reliably and fall
+// back to their own generic "send money" screen instead of pre-filling the
+// payment. Using each app's dedicated scheme is far more reliable.
+function payWithApp(app) {
   const amount = getSubtotal();
   if (amount <= 0) return;
   if (!validateDeliveryDetails()) return;
 
   const note = "Order-" + cart.map(i => i.name).join(",").slice(0, 40);
-  // am must be a clean 2-decimal amount — some UPI apps (Paytm especially)
-  // silently fail to parse the deep link and fall back to their generic
-  // "send money" screen if this isn't formatted exactly right.
   const formattedAmount = amount.toFixed(2);
-  const upiLink = `upi://pay?pa=${encodeURIComponent(SHOP_UPI_ID)}&pn=${encodeURIComponent(SHOP_UPI_NAME)}&am=${formattedAmount}&cu=INR&tn=${encodeURIComponent(note)}`;
+  const params = `pa=${encodeURIComponent(SHOP_UPI_ID)}&pn=${encodeURIComponent(SHOP_UPI_NAME)}&am=${formattedAmount}&cu=INR&tn=${encodeURIComponent(note)}`;
 
-  // Trigger the UPI app via a real anchor click — this is handled far more
-  // reliably by mobile browsers than setting window.location.href directly,
-  // especially right after another window.open() call in the same action.
+  let link;
+  if (app === "gpay") link = `tez://upi/pay?${params}`;
+  else if (app === "phonepe") link = `phonepe://pay?${params}`;
+  else if (app === "paytm") link = `paytmmp://pay?${params}`;
+  else link = `upi://pay?${params}`;
+
   const a = document.createElement("a");
-  a.href = upiLink;
+  a.href = link;
   a.style.display = "none";
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
 
   // Notify the shop owner shortly after — kept separate (not simultaneous)
-  // so it doesn't interfere with the UPI app-launch gesture above.
+  // so it doesn't interfere with the payment app-launch gesture above.
   setTimeout(() => {
     notifyShopOwner();
-  }, 700);
+  }, 1200);
 
-  // Also show QR code (helps on desktop, or as a fallback)
+  // Fallback QR (generic upi:// link) — mainly useful on desktop, or if the
+  // selected app isn't installed and the deep link silently does nothing.
+  const genericLink = `upi://pay?${params}`;
   const qrWrap = document.getElementById("cartQR");
-  const qrImg = "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=" + encodeURIComponent(upiLink);
-  qrWrap.innerHTML = `<div class="shop-notified-banner">✅ Aapka order details shop owner ko WhatsApp par bhej diye gaye hain.</div><img src="${qrImg}" alt="Scan to pay via UPI"><p style="font-size:12px;color:#999;margin-top:6px;">Scan this QR with any UPI app to pay ₹${amount}</p>`;
+  const qrImg = "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=" + encodeURIComponent(genericLink);
+  qrWrap.innerHTML = `<div class="shop-notified-banner">✅ Order details shop owner ko WhatsApp par bhej diye jaa rahe hain.</div><p style="font-size:13px;color:#5D2E5F;font-weight:600;margin:10px 0 8px;">App nahi khula? Kisi doosre UPI app se ye QR scan karein:</p><img src="${qrImg}" alt="Scan to pay via UPI"><p style="font-size:12px;color:#999;margin-top:6px;">₹${amount}</p>`;
   qrWrap.style.display = "block";
 }
 
