@@ -4543,15 +4543,28 @@ function payViaUPI() {
   if (amount <= 0) return;
   if (!validateDeliveryDetails()) return;
 
-  // Notify the shop owner right away — this now always happens,
-  // regardless of whether the customer ever taps the WhatsApp button.
-  notifyShopOwner();
-
   const note = "Order-" + cart.map(i => i.name).join(",").slice(0, 40);
-  const upiLink = `upi://pay?pa=${encodeURIComponent(SHOP_UPI_ID)}&pn=${encodeURIComponent(SHOP_UPI_NAME)}&am=${amount}&cu=INR&tn=${encodeURIComponent(note)}`;
+  // am must be a clean 2-decimal amount — some UPI apps (Paytm especially)
+  // silently fail to parse the deep link and fall back to their generic
+  // "send money" screen if this isn't formatted exactly right.
+  const formattedAmount = amount.toFixed(2);
+  const upiLink = `upi://pay?pa=${encodeURIComponent(SHOP_UPI_ID)}&pn=${encodeURIComponent(SHOP_UPI_NAME)}&am=${formattedAmount}&cu=INR&tn=${encodeURIComponent(note)}`;
 
-  // Try opening UPI app directly (works on mobile)
-  window.location.href = upiLink;
+  // Trigger the UPI app via a real anchor click — this is handled far more
+  // reliably by mobile browsers than setting window.location.href directly,
+  // especially right after another window.open() call in the same action.
+  const a = document.createElement("a");
+  a.href = upiLink;
+  a.style.display = "none";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+
+  // Notify the shop owner shortly after — kept separate (not simultaneous)
+  // so it doesn't interfere with the UPI app-launch gesture above.
+  setTimeout(() => {
+    notifyShopOwner();
+  }, 700);
 
   // Also show QR code (helps on desktop, or as a fallback)
   const qrWrap = document.getElementById("cartQR");
