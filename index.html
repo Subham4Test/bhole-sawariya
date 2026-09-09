@@ -454,44 +454,49 @@ justify-content:center;
 
 gap:14px;
 
+margin-left:auto;
+
 }
 
 /* ============ CART ICON ============ */
 .cart-icon-btn{
   position:relative;
-  background:rgba(255,255,255,.10);
-  border:1px solid rgba(255,215,0,.28);
+  background:linear-gradient(135deg,rgba(212,175,55,.25),rgba(212,175,55,.08));
+  border:1.5px solid rgba(255,215,0,.55);
   backdrop-filter:blur(12px);
   border-radius:50%;
-  width:48px;
-  height:48px;
-  font-size:20px;
+  width:50px;
+  height:50px;
+  font-size:21px;
   cursor:pointer;
   display:flex;
   align-items:center;
   justify-content:center;
+  box-shadow:0 4px 14px rgba(0,0,0,.2),inset 0 0 10px rgba(255,215,0,.08);
   transition:.3s;
 }
 .cart-icon-btn:hover{
-  transform:translateY(-3px);
-  background:rgba(255,255,255,.18);
+  transform:translateY(-3px) scale(1.05);
+  background:linear-gradient(135deg,rgba(212,175,55,.4),rgba(212,175,55,.15));
+  box-shadow:0 8px 20px rgba(212,175,55,.35),inset 0 0 12px rgba(255,215,0,.15);
 }
 .cart-count{
   position:absolute;
-  top:-4px;
-  right:-4px;
-  background:#FFD700;
+  top:-5px;
+  right:-5px;
+  background:linear-gradient(135deg,#FFD700,#D4AF37);
   color:#3f124d;
   font-size:11px;
   font-weight:800;
-  min-width:18px;
-  height:18px;
-  border-radius:9px;
+  min-width:19px;
+  height:19px;
+  border-radius:10px;
   display:flex;
   align-items:center;
   justify-content:center;
   padding:0 4px;
-  box-shadow:0 2px 8px rgba(0,0,0,.3);
+  border:2px solid #3f124d;
+  box-shadow:0 2px 8px rgba(0,0,0,.35);
 }
 
 /* Card */
@@ -3207,10 +3212,11 @@ margin:8px 15px 18px;
 /* ============ DELIVERY FORM ============ */
 .delivery-form{
   margin-bottom:16px;
-  padding:14px;
-  background:#FAF6F8;
-  border-radius:14px;
+  padding:20px 18px;
+  background:linear-gradient(135deg,#FDF9FB,#FAF3F6);
+  border-radius:20px;
   border:1px solid #E5C7D8;
+  box-shadow:0 8px 24px rgba(183,110,121,.08);
 }
 .delivery-form-title{
   font-weight:700;
@@ -3218,23 +3224,67 @@ margin:8px 15px 18px;
   font-size:14px;
   margin-bottom:10px;
 }
+.delivery-field{
+  margin-bottom:16px;
+}
+.delivery-field:last-child{
+  margin-bottom:0;
+}
+.delivery-label{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:12.5px;
+  font-weight:700;
+  letter-spacing:.3px;
+  color:#B76E79;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+.delivery-input-wrap{
+  position:relative;
+}
+.delivery-input-icon{
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:16px;
+  pointer-events:none;
+  opacity:.75;
+}
 .delivery-input{
   width:100%;
-  padding:10px 12px;
-  margin-bottom:8px;
-  border:1px solid #E5C7D8;
-  border-radius:10px;
+  padding:13px 14px 13px 40px;
+  border:1.5px solid #E5C7D8;
+  border-radius:12px;
+  background:#fff;
   font-family:'Poppins',sans-serif;
-  font-size:14px;
+  font-size:14.5px;
   color:#333;
+  transition:.25s;
 }
 .delivery-input:focus{
   outline:none;
-  border-color:#B76E79;
+  border-color:#D4AF37;
+  box-shadow:0 0 0 4px rgba(212,175,55,.14);
 }
 .delivery-textarea{
   resize:vertical;
-  min-height:60px;
+  min-height:64px;
+  padding-top:13px;
+}
+.textarea-wrap .delivery-input-icon{
+  top:16px;
+  transform:none;
+}
+.delivery-row{
+  display:flex;
+  gap:12px;
+}
+.delivery-row .delivery-field{
+  flex:1;
+  min-width:0;
 }
 .delivery-error{
   color:#ff4d6d;
@@ -3243,35 +3293,22 @@ margin:8px 15px 18px;
   margin-bottom:0;
 }
 
-.upi-app-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin-bottom:16px;
-}
-.upi-app-btn{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-  padding:16px 8px;
-  background:#fff;
-  border:2px solid #E5C7D8;
-  border-radius:16px;
+.cart-pay-btn{
+  width:100%;
+  padding:14px;
+  background:linear-gradient(135deg,#D4AF37,#B8860B);
+  color:#3f124d;
+  border:none;
+  border-radius:50px;
   font-weight:700;
-  font-size:13px;
-  color:#5D2E5F;
+  font-size:16px;
   cursor:pointer;
+  margin-bottom:10px;
   transition:.3s;
 }
-.upi-app-icon{
-  font-size:26px;
-}
-.upi-app-btn:hover{
-  border-color:#D4AF37;
-  transform:translateY(-3px);
-  box-shadow:0 10px 20px rgba(212,175,55,.25);
+.cart-pay-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 22px rgba(212,175,55,.4);
 }
 .cart-whatsapp-btn{
   width:100%;
@@ -4150,10 +4187,40 @@ img{
       <div class="checkout-section">
         <p class="checkout-step-label">STEP 2 — Delivery Details</p>
         <div class="delivery-form">
-          <input type="text" id="custName" class="delivery-input" placeholder="Your Full Name" required>
-          <input type="tel" id="custPhone" class="delivery-input" placeholder="Phone Number" maxlength="10" required>
-          <textarea id="custAddress" class="delivery-input delivery-textarea" placeholder="Full Delivery Address (House no, Street, Area, City, Pincode)" required></textarea>
-          <p class="delivery-error" id="deliveryError" style="display:none;">⚠️ Please fill Name, Phone and Address before checkout.</p>
+
+          <div class="delivery-field">
+            <label class="delivery-label" for="custName">👤 Full Name</label>
+            <div class="delivery-input-wrap">
+              <span class="delivery-input-icon">🙍</span>
+              <input type="text" id="custName" class="delivery-input" placeholder="e.g. Shubham Rawal" required>
+            </div>
+          </div>
+
+          <div class="delivery-field">
+            <label class="delivery-label" for="custPhone">📞 Phone Number</label>
+            <div class="delivery-input-wrap">
+              <span class="delivery-input-icon">📱</span>
+              <input type="tel" id="custPhone" class="delivery-input" placeholder="10-digit mobile number" maxlength="10" required>
+            </div>
+          </div>
+
+          <div class="delivery-field">
+            <label class="delivery-label" for="custAddress">🏠 Delivery Address</label>
+            <div class="delivery-input-wrap textarea-wrap">
+              <span class="delivery-input-icon">📍</span>
+              <textarea id="custAddress" class="delivery-input delivery-textarea" placeholder="House no, Street, Area, City" required></textarea>
+            </div>
+          </div>
+
+          <div class="delivery-field">
+            <label class="delivery-label" for="custPincode">🧭 PIN Code</label>
+            <div class="delivery-input-wrap">
+              <span class="delivery-input-icon">#️⃣</span>
+              <input type="tel" id="custPincode" class="delivery-input" placeholder="6-digit PIN code" maxlength="6" required>
+            </div>
+          </div>
+
+          <p class="delivery-error" id="deliveryError" style="display:none;">⚠️ Please fill Name, Phone, Address and PIN Code before checkout.</p>
         </div>
       </div>
 
@@ -4166,24 +4233,9 @@ img{
       </div>
 
       <div class="checkout-section">
-        <p class="checkout-step-label">STEP 4 — Choose Payment App</p>
-        <div class="upi-app-grid">
-          <button class="upi-app-btn" onclick="payWithApp('gpay')">
-            <span class="upi-app-icon">🟢</span> Google Pay
-          </button>
-          <button class="upi-app-btn" onclick="payWithApp('phonepe')">
-            <span class="upi-app-icon">🟣</span> PhonePe
-          </button>
-          <button class="upi-app-btn" onclick="payWithApp('paytm')">
-            <span class="upi-app-icon">🔵</span> Paytm
-          </button>
-          <button class="upi-app-btn" onclick="payWithApp('other')">
-            <span class="upi-app-icon">💳</span> Other UPI App
-          </button>
-        </div>
-        <div id="cartQR" class="cart-qr" style="display:none;"></div>
+        <p class="checkout-step-label">STEP 4 — Payment</p>
+        <button class="cart-pay-btn" onclick="payNow()">💳 Pay Now</button>
         <button class="cart-whatsapp-btn" onclick="sendCartOnWhatsApp()">📲 Confirm Order on WhatsApp</button>
-        <p class="cart-note">Payment app khulte hi order details automatically shop ko WhatsApp par bhej di jaayengi.</p>
       </div>
 
     </div>
@@ -4505,7 +4557,6 @@ function renderCart() {
   `).join("");
 
   document.getElementById("cartSubtotal").textContent = "₹" + getSubtotal();
-  document.getElementById("cartQR").style.display = "none";
 }
 
 function toggleCart() {
@@ -4521,37 +4572,39 @@ function loadDeliveryDetails() {
   if (saved.name) document.getElementById("custName").value = saved.name;
   if (saved.phone) document.getElementById("custPhone").value = saved.phone;
   if (saved.address) document.getElementById("custAddress").value = saved.address;
+  if (saved.pincode) document.getElementById("custPincode").value = saved.pincode;
 }
 
 function getDeliveryDetails() {
   const name = document.getElementById("custName").value.trim();
   const phone = document.getElementById("custPhone").value.trim();
   const address = document.getElementById("custAddress").value.trim();
-  return { name, phone, address };
+  const pincode = document.getElementById("custPincode").value.trim();
+  return { name, phone, address, pincode };
 }
 
 function validateDeliveryDetails() {
-  const { name, phone, address } = getDeliveryDetails();
+  const { name, phone, address, pincode } = getDeliveryDetails();
   const errorMsg = document.getElementById("deliveryError");
-  if (!name || !phone || phone.length < 10 || !address) {
+  if (!name || !phone || phone.length < 10 || !address || !pincode || pincode.length < 6) {
     errorMsg.style.display = "block";
     return false;
   }
   errorMsg.style.display = "none";
-  localStorage.setItem("bhole_delivery", JSON.stringify({ name, phone, address }));
+  localStorage.setItem("bhole_delivery", JSON.stringify({ name, phone, address, pincode }));
   return true;
 }
 
 let orderNotificationSent = false;
 
 function buildOrderMessage() {
-  const { name, phone, address } = getDeliveryDetails();
+  const { name, phone, address, pincode } = getDeliveryDetails();
   let msg = "Hi, I want to order:%0A";
   cart.forEach(item => {
     msg += `- ${item.name} x${item.qty} = ₹${item.price * item.qty}%0A`;
   });
   msg += `%0ATotal: ₹${getSubtotal()}`;
-  msg += `%0A%0A📦 Delivery Details:%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AAddress: ${encodeURIComponent(address)}`;
+  msg += `%0A%0A📦 Delivery Details:%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AAddress: ${encodeURIComponent(address)}%0APIN Code: ${encodeURIComponent(pincode)}`;
   return msg;
 }
 
@@ -4565,12 +4618,10 @@ function notifyShopOwner() {
   orderNotificationSent = true;
 }
 
-// Each major UPI app has its OWN deep-link scheme. The generic "upi://pay"
-// link is meant to work everywhere via Android's intent chooser, but in
-// practice some apps (Paytm especially) don't parse it reliably and fall
-// back to their own generic "send money" screen instead of pre-filling the
-// payment. Using each app's dedicated scheme is far more reliable.
-function payWithApp(app) {
+// TEMPORARY: simple UPI deep-link based payment, until Razorpay
+// integration is added (which will replace this with a proper,
+// reliable payment gateway checkout).
+function payNow() {
   const amount = getSubtotal();
   if (amount <= 0) return;
   if (!validateDeliveryDetails()) return;
@@ -4578,12 +4629,7 @@ function payWithApp(app) {
   const note = "Order-" + cart.map(i => i.name).join(",").slice(0, 40);
   const formattedAmount = amount.toFixed(2);
   const params = `pa=${encodeURIComponent(SHOP_UPI_ID)}&pn=${encodeURIComponent(SHOP_UPI_NAME)}&am=${formattedAmount}&cu=INR&tn=${encodeURIComponent(note)}`;
-
-  let link;
-  if (app === "gpay") link = `tez://upi/pay?${params}`;
-  else if (app === "phonepe") link = `phonepe://pay?${params}`;
-  else if (app === "paytm") link = `paytmmp://pay?${params}`;
-  else link = `upi://pay?${params}`;
+  const link = `upi://pay?${params}`;
 
   const a = document.createElement("a");
   a.href = link;
@@ -4597,14 +4643,6 @@ function payWithApp(app) {
   setTimeout(() => {
     notifyShopOwner();
   }, 1200);
-
-  // Fallback QR (generic upi:// link) — mainly useful on desktop, or if the
-  // selected app isn't installed and the deep link silently does nothing.
-  const genericLink = `upi://pay?${params}`;
-  const qrWrap = document.getElementById("cartQR");
-  const qrImg = "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=" + encodeURIComponent(genericLink);
-  qrWrap.innerHTML = `<div class="shop-notified-banner">✅ Order details shop owner ko WhatsApp par bhej diye jaa rahe hain.</div><p style="font-size:13px;color:#5D2E5F;font-weight:600;margin:10px 0 8px;">App nahi khula? Kisi doosre UPI app se ye QR scan karein:</p><img src="${qrImg}" alt="Scan to pay via UPI"><p style="font-size:12px;color:#999;margin-top:6px;">₹${amount}</p>`;
-  qrWrap.style.display = "block";
 }
 
 function sendCartOnWhatsApp() {
